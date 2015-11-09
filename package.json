@@ -1,0 +1,64 @@
+{
+  "name": "flexibility",
+  "version": "0.2.0",
+  "description": "Use flexbox while supporting older Internet Explorers",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/10up/flexibility.git"
+  },
+  "keywords": [
+    "flex",
+    "display",
+    "direction",
+    "wrap",
+    "flow",
+    "justify",
+    "content",
+    "align",
+    "items",
+    "content",
+    "order",
+    "grow",
+    "shrink",
+    "basis",
+    "self",
+    "auto",
+    "start",
+    "end",
+    "center",
+    "baseline",
+    "stretch",
+    "space",
+    "between",
+    "around",
+    "polyfill",
+    "ie",
+    "internet",
+    "explorer",
+    "layout"
+  ],
+  "author": "Jonathan Neal <jonathantneal@hotmail.com> (http://jonathantneal.com)",
+  "license": "GPLv2",
+  "bugs": {
+    "url": "https://github.com/10up/flexibility/issues"
+  },
+  "homepage": "https://github.com/10up/flexibility#readme",
+  "scripts": {
+  	"build": "gulp",
+    "lint": "eslint . --ignore-path .eslintignore",
+    "test": "npm run lint"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^1.8.0",
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.1"
+  },
+  "engines": {
+    "iojs": ">=2.0.0",
+    "node": ">=0.12.0"
+  }
+}
