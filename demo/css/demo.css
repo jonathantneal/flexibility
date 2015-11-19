@@ -93,6 +93,7 @@ ol, ul {
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
+	width: 600px;
 }
 
 .demo-one .demo-items {
@@ -126,4 +127,33 @@ ol, ul {
 
 .demo-two .demo-items {
 	background-color: #f7dce1;
+}
+
+.demo-three {
+	display: flex;
+	align-items: center;
+	align-content: stretch;
+	background-color: #cb2c46;
+	color: #cb2c46;
+}
+
+.demo-three .demo-items {
+	background-color: #ccc;
+	color: inherit;
+}
+
+.demo-four {
+	background-color: #f1c1c8;
+	color: #f1c1c8;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	width: 400px;
+	height: 300px;
+
+}
+
+.demo-four .demo-items {
+	background-color: #2e2e2e;
+	color: inherit;
 }
