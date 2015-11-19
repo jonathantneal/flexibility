@@ -53,17 +53,29 @@ ol, ul {
 .demo-site-wrapper {
 	width: 100%;
 	max-width: 1200px;
-	padding: 0 10px;
+	padding: 20px 10px;
 }
 
-.demo,
-.demo-description {
+.demo {
 	margin: 20px auto;
 	padding: 15px;
 }
 
-.demo-description {
+.demo-title,
+.demo-desc {
 	color: #fef8f9;
+	text-align: center;
+}
+
+.demo-title {
+	font-size: 18px;
+	line-height: 22px;
+	font-weight: 700;
+}
+
+.demo-desc {
+	font-size: 14px;
+	line-height: 18px;
 }
 
 .demo .demo-items {
