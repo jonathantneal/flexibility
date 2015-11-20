@@ -92,7 +92,7 @@ ul {
 }
 
 .demo-two-left {
-	background-color: #d68;
+	background-color: #d95167;
 	-js-display: flex;
 	display: block;
 	display: flex;
@@ -100,7 +100,7 @@ ul {
 }
 
 .demo-two-right {
-	background-color: #d86;
+	background-color: #eeb3bc;
 	-js-display: flex;
 	display: block;
 	display: flex;
