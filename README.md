@@ -6,6 +6,8 @@
 
 Flexbox provides an efficient way to lay out, align, and distribute items in a container, even when their size is unknown or dynamic. To better understand Flexbox, take a moment to read [Chris Coyier]’s excellent [Complete Guide to Flexbox].
 
+To start using Flexbox in Internet Explorer 8 & 9, add a `-js-display` display property to your CSS file.
+
 ```css
 .container {
 	-js-display: flex;
@@ -15,21 +17,21 @@ Flexbox provides an efficient way to lay out, align, and distribute items in a c
 }
 ```
 
-To get picked up in Internet Explorer 8 & 9, a special (`-js-display`) display property is used.
-
 While [Flexibility] is still in active development, it can already do so much. Therefore, it has been released even in an incomplete state. Your contributions, feedback, and encouragement are greatly appreciated.
 
 ### How to use it
 
-Download the [flexibility.js] script and include it somewhere on your page. [Flexibility] will automatically detect any flex-affected elements on the page and restyle them accordingly in Internet Explorer 8 & 9.
+Download the [dist/flexibility.js](dist/flexibility.js) script and include it somewhere on your page. [Flexibility] will automatically detect any flex-affected elements on the page and restyle them accordingly in Internet Explorer 8 & 9.
 
 ### How it works
 
-The secret sauce is proprietary features.
+The secret to flexibility is leveraging proprietary features in older Internet Explorers.
 
-Internet Explorer 8 & 9 have a proprietary feature called `currentStyle` which returns every raw CSS property applied to an element. While known properties like `display` return only valid values, “unknown” properties like `align-contents`, `justify-content`, and `flex` are returned without alteration. The result is this; without parsing any stylesheets, flex properties are easily read from any element.
+Internet Explorer 8 & 9 have a proprietary feature called [`currentStyle`] which returns the raw CSS applied to an element. While known properties (like `display`) are sanitized to return only valid values, “unknown” properties like `align-contents`, `justify-content`, and `flex` return exactly what they received. As a result, flex properties can be easily read from any element without fetching or parsing any stylesheets. In short, your cross domain CSS is safe.
 
-Once all of the flex values are known, measurements of flex-affected elements are taken and new style declarations are written to simulate what flex does natively. While overwriting style declarations is tricky when inline styles are considered, another IE proprietary feature called `runtimeStyle` is used to assign new declarations without compromising existing inline styles.
+Once all of the flex values are processed, basic flex display is applied to the document. Finally, careful measurements are taken of all flexbox elements, and new style declarations are written to simulate whatever flexbox would have done natively.
+
+Overwriting style declarations can be tricky, especially when inline styles are considered, which is why another IE proprietary feature called [`runtimeStyle`] is used to assign new declarations without compromising inline styles. In short, no messy style attributes.
 
 [ci]:      https://magnum.travis-ci.com/10up/flexibility
 [ci-img]:  https://api.travis-ci.com/10up/flexibility.svg?token=mqvp34VgHUamyk5XDa9d
@@ -40,5 +42,7 @@ Once all of the flex values are known, measurements of flex-affected elements ar
 
 [Chris Coyier]: https://twitter.com/chriscoyier
 [Complete Guide to Flexbox]: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+[`currentStyle`]: http://help.dottoro.com/ljqkvomc.php
 [flexibility.js]: /flexibility.js
 [Flexible Box Layout Module Level 1]: http://www.w3.org/TR/css3-flexbox/
+[`runtimeStyle`]: http://help.dottoro.com/ljhddfwr.php
