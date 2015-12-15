@@ -1,6 +1,6 @@
 {
   "name": "flexibility",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Use flexbox while supporting older Internet Explorers",
   "main": "index.js",
   "repository": {
