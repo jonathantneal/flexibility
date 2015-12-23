@@ -53,6 +53,5 @@ Flexibility is free software; you can redistribute it and/or modify it under the
 [Flexible Box Layout Module Level 1]: http://www.w3.org/TR/css3-flexbox/
 [GNU General Public License]: https://github.com/10up/flexibility/blob/master/LICENSE.md
 [`runtimeStyle`]: http://help.dottoro.com/ljhddfwr.php
-[postcss-flexibility]: https://github.com/7runik/postcss-flexibility
 [PostCSS]: https://github.com/postcss/postcss
 [postcss-flexibility]: https://github.com/7rulnik/postcss-flexibility
