@@ -23,6 +23,8 @@ While [Flexibility] is still in active development, it can already do so much. T
 
 Download the [dist/flexibility.js](dist/flexibility.js) script and include it somewhere on your page. [Flexibility] will automatically detect any flex-affected elements on the page and restyle them accordingly in Internet Explorer 8 & 9.
 
+If you use [PostCSS] take a look at [postcss-flexibility].
+
 ### How it works
 
 The secret to flexibility is leveraging proprietary features in older Internet Explorers.
@@ -51,3 +53,6 @@ Flexibility is free software; you can redistribute it and/or modify it under the
 [Flexible Box Layout Module Level 1]: http://www.w3.org/TR/css3-flexbox/
 [GNU General Public License]: https://github.com/10up/flexibility/blob/master/LICENSE.md
 [`runtimeStyle`]: http://help.dottoro.com/ljhddfwr.php
+[postcss-flexibility]: https://github.com/7runik/postcss-flexibility
+[PostCSS]: https://github.com/postcss/postcss
+[postcss-flexibility]: https://github.com/7rulnik/postcss-flexibility
