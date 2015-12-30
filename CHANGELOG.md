@@ -1,3 +1,7 @@
+## 0.2.3 (2015-12-30)
+
+- Updated: License updated in README.md
+
 ## 0.2.2 (2015-12-30)
 
 - Updated: License updated from GPL to MIT

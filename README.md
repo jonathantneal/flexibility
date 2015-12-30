@@ -33,10 +33,6 @@ Once all of the flex values are processed, basic flex display is applied to the 
 
 Overwriting style declarations can be tricky, especially when inline styles are considered, which is why another IE proprietary feature called [`runtimeStyle`] is used to assign new declarations without compromising inline styles. In short, no messy style attributes.
 
-## License
-
-Flexibility is free software; you can redistribute it and/or modify it under the terms of the [GNU General Public License] as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
-
 [ci]:      https://travis-ci.org/10up/flexibility
 [ci-img]:  https://img.shields.io/travis/10up/flexibility.svg
 [npm]:     https://www.npmjs.com/package/flexibility
