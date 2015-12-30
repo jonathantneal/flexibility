@@ -1,6 +1,6 @@
 {
   "name": "flexibility",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Use flexbox while supporting older Internet Explorers",
   "main": "index.js",
   "repository": {
@@ -39,7 +39,7 @@
     "layout"
   ],
   "author": "Jonathan Neal <jonathantneal@hotmail.com> (http://jonathantneal.com)",
-  "license": "GPLv2",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/10up/flexibility/issues"
   },
