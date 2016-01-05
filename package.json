@@ -2,7 +2,7 @@
   "name": "flexibility",
   "version": "0.2.3",
   "description": "Use flexbox while supporting older Internet Explorers",
-  "main": "index.js",
+  "main": "dist/flexibility.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/10up/flexibility.git"
@@ -47,6 +47,7 @@
   "scripts": {
   	"build": "gulp",
     "lint": "eslint . --ignore-path .eslintignore",
+    "prepublish": "npm run build",
     "test": "npm run lint"
   },
   "dependencies": {},
