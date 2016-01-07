@@ -1,0 +1,49 @@
+{
+  "name": "flexibility",
+  "description": "Use flexbox while supporting older Internet Explorers",
+  "main": "dist/flexibility.js",
+  "authors": [
+    "Jonathan Neal <jonathantneal@hotmail.com> (http://jonathantneal.com)"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "flex",
+    "display",
+    "direction",
+    "wrap",
+    "flow",
+    "justify",
+    "content",
+    "align",
+    "items",
+    "content",
+    "order",
+    "grow",
+    "shrink",
+    "basis",
+    "self",
+    "auto",
+    "start",
+    "end",
+    "center",
+    "baseline",
+    "stretch",
+    "space",
+    "between",
+    "around",
+    "polyfill",
+    "ie",
+    "internet",
+    "explorer",
+    "layout"
+  ],
+  "homepage": "https://github.com/10up/flexibility.git",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
