@@ -1,6 +1,6 @@
 {
   "name": "flexibility",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "description": "Use flexbox while supporting older Internet Explorers",
   "main": "dist/flexibility.js",
   "repository": {

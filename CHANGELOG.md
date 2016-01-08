@@ -1,3 +1,10 @@
+## 0.3.0 (2016-01-08)
+
+- Added: Bower configuration
+- Updated: Fallback for objects without currentStyle (`<svg>`)
+- Updated: White-spacing handling in IE9
+- Updated: Lint and test configurations
+
 ## 0.2.3 (2015-12-30)
 
 - Updated: License updated in README.md
