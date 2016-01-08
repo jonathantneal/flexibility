@@ -4,6 +4,10 @@
 
 [Flexibility] is a polyfill for [Flexible Box Layout Module Level 1]. Use it to design beautiful, flexible layouts on the web without sacrificing the experience in older Internet Explorer browsers.
 
+![Screenshot from Internet Explorer 8 in Windows XP](demos/bs_winxp_IE_8.0.jpg)
+
+![Screenshot from Internet Explorer 9 in Windows 7](demos/bs_win7_IE_9.0.jpg)
+
 Flexbox provides an efficient way to lay out, align, and distribute items in a container, even when their size is unknown or dynamic. To better understand Flexbox, take a moment to read [Chris Coyier]’s excellent [Complete Guide to Flexbox].
 
 To start using Flexbox in Internet Explorer 8 & 9, add a `-js-display` display property to your CSS file.
