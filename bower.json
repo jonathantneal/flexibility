@@ -40,10 +40,9 @@
   "homepage": "https://github.com/10up/flexibility.git",
   "moduleType": [],
   "ignore": [
-    "**/.*",
-    "node_modules",
     "bower_components",
-    "test",
-    "tests"
+    "node_modules",
+    "demos",
+    "lib"
   ]
 }
