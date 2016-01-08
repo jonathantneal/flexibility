@@ -1,2 +1,3 @@
-node_modules/
+demos
+node_modules
 npm-debug.log

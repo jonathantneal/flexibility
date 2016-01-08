@@ -1,15 +1,4 @@
 {
-	"env": {
-		"browser": true,
-		"node": true,
-		"es6": true
-	},
-	"globals": {
-		"document": true,
-		"navigator": true,
-		"window": true,
-		"flexibility": true
-	},
 	"rules": {
 		"no-shadow-restricted-names":  [2],
 		"computed-property-spacing":   [2],
@@ -74,12 +63,12 @@
 		"no-extra-semi":               [2],
 		"no-extra-bind":               [2],
 		"arrow-spacing":               [2],
-		"prefer-spread":               [2],
+		"prefer-spread":               [0],
 		"no-new-object":               [2],
 		"no-multi-str":                [2],
 		"semi-spacing":                [2],
 		"no-lonely-if":                [2],
-		"dot-notation":                [0],
+		"dot-notation":                [2],
 		"dot-location":                [2, "property"],
 		"comma-dangle":                [2, "never"],
 		"no-dupe-args":                [2],
@@ -98,12 +87,12 @@
 		"quote-props":                 [0],
 		"no-iterator":                 [2],
 		"no-new-func":                 [2],
-		"key-spacing":                 [2, { "align": "value" }],
+		"key-spacing":                 [0],
 		"complexity":                  [2],
 		"new-parens":                  [2],
 		"no-eq-null":                  [2],
 		"no-bitwise":                  [0],
-		"wrap-iife":                   [2],
+		"wrap-iife":                   [2, "inside"],
 		"no-caller":                   [2],
 		"use-isnan":                   [2],
 		"no-labels":                   [2],
@@ -127,7 +116,10 @@
 		"yoda":                        [2, "never"]
 	},
 	"env": {
-		"mocha": true,
+		"browser": true,
 		"node":  true
+	},
+	"globals": {
+		"flexibility": true
 	}
 }

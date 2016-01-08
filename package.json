@@ -45,10 +45,9 @@
   },
   "homepage": "https://github.com/10up/flexibility#readme",
   "scripts": {
-  	"build": "gulp",
-    "lint": "eslint . --ignore-path .eslintignore",
+    "build": "gulp",
     "prepublish": "npm run build",
-    "test": "npm run lint"
+    "test": "eslint . && jscs ."
   },
   "dependencies": {},
   "devDependencies": {
@@ -56,7 +55,8 @@
     "gulp": "^3.9.0",
     "gulp-concat": "^2.6.0",
     "gulp-sourcemaps": "^1.6.0",
-    "gulp-uglify": "^1.5.1"
+    "gulp-uglify": "^1.5.1",
+    "jscs": "^2.8.0"
   },
   "engines": {
     "iojs": ">=2.0.0",
