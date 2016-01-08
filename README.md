@@ -8,6 +8,8 @@
 
 ![Screenshot from Internet Explorer 9 in Windows 7](demos/bs_win7_IE_9.0.jpg)
 
+![Screenshot from Chrome 47 in Mac OS X El Capitan](demos/bs_macelc_Chrome_47.0.jpg)
+
 Flexbox provides an efficient way to lay out, align, and distribute items in a container, even when their size is unknown or dynamic. To better understand Flexbox, take a moment to read [Chris Coyier]’s excellent [Complete Guide to Flexbox].
 
 To start using Flexbox in Internet Explorer 8 & 9, add a `-js-display` display property to your CSS file.
