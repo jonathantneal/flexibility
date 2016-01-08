@@ -86,7 +86,6 @@ ul {
 
 .demo-two-left,
 .demo-two-right {
-	flex-flow: row wrap;
 	padding: 10px;
 	width: 50%;
 }
