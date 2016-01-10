@@ -1,3 +1,16 @@
+# Change Log
+
+[![NPM Version][npm-img]][npm] [![Build Status][ci-img]][ci]
+
+## 1.0.0 (2016-01-14)
+
+- Added: Use CSS Layout for Flexbox positioning (https://github.com/facebook/css-layout)
+- Added: Support for all longhand Flexbox properties
+- Added: Automatic display updates during window resize
+- Added: Ability to manually toggle display updates (useful during CSS changes)
+- Added: Visual tests
+- Updated: Documentation
+
 ## 0.3.0 (2016-01-08)
 
 - Added: Bower configuration
@@ -20,3 +33,19 @@
 ## 0.2.0 (2015-12-08)
 
 - Added: Initial release
+
+---
+
+To learn more about [Flexibility], read the [support] section.
+
+If you experience an issue, read the [contributing] section before creating an issue.
+
+[ci]:      https://travis-ci.org/10up/flexibility
+[ci-img]:  https://img.shields.io/travis/10up/flexibility.svg
+[npm]:     https://www.npmjs.com/package/flexibility
+[npm-img]: https://img.shields.io/npm/v/flexibility.svg
+
+[Flexibility]: https://github.com/10up/flexibility
+
+[contributing]: CONTRIBUTING.md
+[support]: SUPPORT.md

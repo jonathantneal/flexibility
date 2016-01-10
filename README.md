@@ -2,44 +2,34 @@
 
 [![NPM Version][npm-img]][npm] [![Build Status][ci-img]][ci]
 
-[Flexibility] is a polyfill for [Flexible Box Layout Module Level 1]. Use it to design beautiful, flexible layouts on the web without sacrificing the experience in older Internet Explorer browsers.
+[Flexibility] is a polyfill for the [Flexible Box Layout], commonly known as Flexbox. With Flexibility, you get to design beautiful, flexible layouts on the web without sacrificing the experience in older Internet Explorer browsers.
 
-![Screenshot from Internet Explorer 8 in Windows XP](demos/bs_winxp_IE_8.0.jpg)
+[![Screenshot of Flexibility][screenshot]][demo]
 
-![Screenshot from Internet Explorer 9 in Windows 7](demos/bs_win7_IE_9.0.jpg)
+Flexbox is used lay out, align, and distribute elements in a container, even when their size is unknown or dynamic. To better understand Flexbox, read [Chris Coyier]’s excellent [Complete Guide to Flexbox].
 
-![Screenshot from Chrome 47 in Mac OS X El Capitan](demos/bs_macelc_Chrome_47.0.jpg)
+To start using Flexbox in Internet Explorer 8 & 9, download the [flexibility.js] script and include it anywhere on your page.
 
-Flexbox provides an efficient way to lay out, align, and distribute items in a container, even when their size is unknown or dynamic. To better understand Flexbox, take a moment to read [Chris Coyier]’s excellent [Complete Guide to Flexbox].
+```html
+<script src="flexibility.js"></script>
+```
 
-To start using Flexbox in Internet Explorer 8 & 9, add a `-js-display` display property to your CSS file.
+Next, add a `-js-display: flex` declaration before any `display: flex` declarations in your CSS, or use [PostCSS Flexibility] to automate this during your build process.
 
 ```css
 .container {
 	-js-display: flex;
 	display: flex;
-
-	align-contents: stretch;
 }
 ```
 
-While [Flexibility] is still in active development, it can already do so much. Therefore, it has been released even in an incomplete state. Your contributions, feedback, and encouragement are greatly appreciated.
+[Flexibility] will automatically detect any flex-affected elements on the page and restyle them accordingly in Internet Explorer 8 & 9.
 
-### How to use it
+---
 
-Download the [dist/flexibility.js](dist/flexibility.js) script and include it somewhere on your page. [Flexibility] will automatically detect any flex-affected elements on the page and restyle them accordingly in Internet Explorer 8 & 9.
+To learn more about [Flexibility], read the [support] section.
 
-If you use [PostCSS] take a look at [postcss-flexibility].
-
-### How it works
-
-The secret to flexibility is leveraging proprietary features in older Internet Explorers.
-
-Internet Explorer 8 & 9 have a proprietary feature called [`currentStyle`] which returns the raw CSS applied to an element. While known properties (like `display`) are sanitized to return only valid values, “unknown” properties like `align-contents`, `justify-content`, and `flex` return exactly what they received. As a result, flex properties can be easily read from any element without fetching or parsing any stylesheets. In short, your cross domain CSS is safe.
-
-Once all of the flex values are processed, basic flex display is applied to the document. Finally, careful measurements are taken of all flexbox elements, and new style declarations are written to simulate whatever flexbox would have done natively.
-
-Overwriting style declarations can be tricky, especially when inline styles are considered, which is why another IE proprietary feature called [`runtimeStyle`] is used to assign new declarations without compromising inline styles. In short, no messy style attributes.
+If you experience an issue, read the [contributing] section before creating an issue.
 
 [ci]:      https://travis-ci.org/10up/flexibility
 [ci-img]:  https://img.shields.io/travis/10up/flexibility.svg
@@ -47,13 +37,14 @@ Overwriting style declarations can be tricky, especially when inline styles are 
 [npm-img]: https://img.shields.io/npm/v/flexibility.svg
 
 [Flexibility]: https://github.com/10up/flexibility
+[contributing]: CONTRIBUTING.md
+[demo]: https://10up.github.io/flexibility/
+[flexibility.js]: dist/flexibility.js
+[screenshot]: https://10up.github.io/flexibility/screenshot.png
+[support]: SUPPORT.md
 
 [Chris Coyier]: https://twitter.com/chriscoyier
 [Complete Guide to Flexbox]: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
-[`currentStyle`]: http://help.dottoro.com/ljqkvomc.php
-[flexibility.js]: https://github.com/10up/flexibility/blob/master/flexibility.js
-[Flexible Box Layout Module Level 1]: http://www.w3.org/TR/css3-flexbox/
+[Flexible Box Layout]: http://www.w3.org/TR/css3-flexbox/
 [GNU General Public License]: https://github.com/10up/flexibility/blob/master/LICENSE.md
-[`runtimeStyle`]: http://help.dottoro.com/ljhddfwr.php
-[PostCSS]: https://github.com/postcss/postcss
-[postcss-flexibility]: https://github.com/7rulnik/postcss-flexibility
+[PostCSS Flexibility]: https://github.com/7rulnik/postcss-flexibility

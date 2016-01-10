@@ -1,3 +1,7 @@
+# Contributing
+
+[![NPM Version][npm-img]][npm] [![Build Status][ci-img]][ci]
+
 You want to help? You rock! Now, take a moment to be sure your contributions make sense to everyone else.
 
 ## Reporting Issues
@@ -52,6 +56,22 @@ Pull requests are the greatest contributions, so be sure they are focused in sco
 	```
 
 5. Now [open a pull request] with a clear title and description.
+
+---
+
+To learn more about [Flexibility], read the [support] section.
+
+If you experience an issue, read the [contributing] section before creating an issue.
+
+[ci]:      https://travis-ci.org/10up/flexibility
+[ci-img]:  https://img.shields.io/travis/10up/flexibility.svg
+[npm]:     https://www.npmjs.com/package/flexibility
+[npm-img]: https://img.shields.io/npm/v/flexibility.svg
+
+[Flexibility]: https://github.com/10up/flexibility
+
+[contributing]: CONTRIBUTING.md
+[support]: SUPPORT.md
 
 [already been reported]: https://github.com/10up/flexibility/issues
 [fork this project]:     https://github.com/10up/flexibility/fork

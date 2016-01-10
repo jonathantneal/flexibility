@@ -47,7 +47,7 @@
   "scripts": {
     "build": "gulp",
     "prepublish": "npm run build",
-    "test": "eslint . && jscs ."
+    "test": "eslint . && jscs ./lib/*.js"
   },
   "dependencies": {},
   "devDependencies": {
