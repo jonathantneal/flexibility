@@ -21,11 +21,6 @@
 	"disallowSpacesInsideObjectBrackets": "all",
 	"disallowSpacesInsideParentheses": true,
 	"disallowTrailingWhitespace": true,
-	"excludeFiles": [
-		".git/**",
-		"dist/**",
-		"node_modules/**"
-	],
 	"maximumLineLength": null,
 	"requireCamelCaseOrUpperCaseIdentifiers": true,
 	"requireCapitalizedConstructors": true,
@@ -36,11 +31,14 @@
 		"while",
 		"do",
 		"try",
-		"catch"
+		"catch",
+		"case",
+		"default"
 	],
 	"requireDotNotation": true,
 	"requireLineFeedAtFileEnd": true,
 	"requireOperatorBeforeLineBreak": true,
+	"requireParenthesesAroundArrowParam": true,
 	"requireSemicolons": true,
 	"requireSpaceAfterBinaryOperators": true,
 	"requireSpaceAfterKeywords": [

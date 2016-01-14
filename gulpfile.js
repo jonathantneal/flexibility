@@ -5,7 +5,8 @@ var uglify = require('gulp-uglify');
 
 gulp.task('default', function () {
 	return gulp.src([
-		'lib/flexibility.init.js',
+		'lib/core.js',
+		'lib/vendor/*.js',
 		'lib/*.js'
 	]).pipe(
 		source.init()
