@@ -1,6 +1,6 @@
 {
   "name": "flexibility",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Use Flexbox while supporting older Internet Explorers",
   "main": "dist/flexibility.js",
   "repository": "10up/flexibility",
@@ -40,18 +40,15 @@
   "bugs": "https://github.com/10up/flexibility/issues",
   "homepage": "https://github.com/10up/flexibility#readme",
   "scripts": {
-    "build": "gulp",
+    "build": "node build.js",
     "prepublish": "npm run build",
     "test": "eslint . && jscs ./lib/*.js"
   },
   "dependencies": {},
   "devDependencies": {
-    "eslint": "^1.8.0",
-    "gulp": "^3.9.0",
-    "gulp-concat": "^2.6.0",
-    "gulp-sourcemaps": "^1.6.0",
-    "gulp-uglify": "^1.5.1",
-    "jscs": "^2.8.0"
+    "eslint": "^1.10.3",
+    "jscs": "^2.8.0",
+    "uglify-js": "^2.6.1"
   },
   "engines": {
     "iojs": ">=2.0.0",

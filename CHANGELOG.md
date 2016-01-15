@@ -2,10 +2,16 @@
 
 [![NPM Version][npm-img]][npm] [![Build Status][ci-img]][ci]
 
+## 1.0.2 (2016-01-14)
+
+- Updated: Percentage calculations support
+- Updated: Build process
+- Updated: Tests
+
 ## 1.0.1 (2016-01-14)
 
 - Updated: Reduced resize and length calculations
-- Updated: Demos and documentation
+- Updated: Tests and documentation
 
 ## 1.0.0 (2016-01-14)
 
