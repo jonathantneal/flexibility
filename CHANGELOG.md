@@ -2,6 +2,11 @@
 
 [![NPM Version][npm-img]][npm] [![Build Status][ci-img]][ci]
 
+## 1.0.1 (2016-01-14)
+
+- Updated: Reduced resize and length calculations
+- Updated: Demos and documentation
+
 ## 1.0.0 (2016-01-14)
 
 - Added: Use CSS Layout for Flexbox positioning (https://github.com/facebook/css-layout)

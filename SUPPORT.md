@@ -23,6 +23,8 @@ border-width, border-left-width, border-right-width, border-top-width, border-bo
 ## Known Issues
 
 - When live switching `align-items: stretch` from `flex-direction: row` to `flex-direction: column`, sometimes the items do not stretch to the container.
+- In IE8, flex items whose widths are determined by inline text don’t always resize on resize.
+- IE 11 pretending to be IE 8 or 9 returns a Flexbox support false positive.
 
 ### How Flexibility Works
 
@@ -56,7 +58,7 @@ Initialize an element for Flexibility usage and return a Details Object.
 Argument: `Event { target: Element }`  
 Default: `document.documentElement`
 
-Temporarily suspend automatic resize detection and [walk][#walk] the target.
+Temporarily suspend automatic resize detection and [walk][#walk] the target but only if the viewport width has changed.
 
 #### `updateFlexContainerCache`
 

@@ -131,6 +131,10 @@ img {
 	vertical-align: top;
 }
 
+.bold {
+	background: #fb0;
+}
+
 .box-1, .box-2, .box-3, .box-4, .box-5, .box-6 {
 	display: block;
 }
