@@ -1,6 +1,6 @@
 {
   "name": "flexibility",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Use Flexbox while supporting older Internet Explorers",
   "main": "dist/flexibility.js",
   "repository": "10up/flexibility",

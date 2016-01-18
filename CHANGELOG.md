@@ -2,6 +2,10 @@
 
 [![NPM Version][npm-img]][npm] [![Build Status][ci-img]][ci]
 
+## 1.0.5 (2016-01-18)
+
+- Updated: Height calculation on flex container
+
 ## 1.0.4 (2016-01-18)
 
 - Added: Watch task for development 
