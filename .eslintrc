@@ -10,7 +10,7 @@
 		"accessor-pairs": [2],
 		"block-scoped-var": [2],
 		"callback-return": [2],
-		"complexity": [2, 15],
+		"complexity": [2, 20],
 		"consistent-return": [2],
 		"consistent-this": [2, "self"],
 		"constructor-super": [2],

@@ -2,6 +2,13 @@
 
 [![NPM Version][npm-img]][npm] [![Build Status][ci-img]][ci]
 
+## 1.0.4 (2016-01-18)
+
+- Added: Watch task for development 
+- Added: onresize response to viewport height changes
+- Updated: Length calculations for percentages
+- Updated: Tests
+
 ## 1.0.3 (2016-01-18)
 
 - Added: Support for `flex-grow` and partial support for `flex`.
