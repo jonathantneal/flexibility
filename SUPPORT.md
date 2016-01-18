@@ -8,23 +8,28 @@ If you experience an issue, read the [contributing] section before creating an i
 
 Name | Value
 ----:|------
-display | flex \| inline-flex
-flex-direction | column \| row
-justify-content | flex-start \| center \| flex-end \| space-between \| space-around
-align-items, align-self | flex-start \| center \| flex-end \| stretch
-flex-wrap | wrap \| nowrap
-order | [CSS Integer]
-width, min-width, max-width | [CSS Length]
-height, min-height, max-height | [CSS Length]
-margin, margin-left, margin-right, margin-top, margin-bottom | [CSS Length]
-padding, padding-left, padding-right, padding-top, padding-bottom | [CSS Length]
-border-width, border-left-width, border-right-width, border-top-width, border-bottom-width | [CSS Length]
+`display` | flex \| inline-flex
+`flex-direction` | column \| row
+`justify-content` | flex-start \| center \| flex-end \| space-between \| space-around
+`align-items`, align-self | flex-start \| center \| flex-end \| stretch
+`flex` | [flex-grow]
+`flex-flow` | `flex-direction` + `flex-wrap`
+`flex-grow` | [CSS Number]
+`flex-wrap` | wrap \| nowrap
+`order` | [CSS Integer]
+`width`, `min-width`, `max-width` | [CSS Length]
+`height`, `min-height`, `max-height` | [CSS Length]
+`margin`, `margin-left`, `margin-right`, `margin-top`, `margin-bottom` | [CSS Length]
+`padding`, `padding-left`, `padding-right`, `padding-top`, `padding-bottom` | [CSS Length]
+`border-width`, `border-left-width`, `border-right-width`, `border-top-width`, `border-bottom-width` | [CSS Length]
 
 ## Known Issues
 
-- When live switching `align-items: stretch` from `flex-direction: row` to `flex-direction: column`, sometimes the items do not stretch to the container.
+- The `flex` shorthand only supports `flex-grow` at this time.
+- The `flex-shrink` and `flex-basis` properties are not yet supported.
+- Changing an `align-items: stretch` container from `flex-direction: row` to `flex-direction: column` on the fly will sometimes fail to stretch the newly columned items.
 - In IE8, flex items whose widths are determined by inline text don’t always resize on resize.
-- IE 11 pretending to be IE 8 or 9 returns a Flexbox support false positive.
+- In IE 11, pretending to be IE 8 or 9 will return a false positive.
 
 ### How Flexibility Works
 

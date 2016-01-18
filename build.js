@@ -1,8 +1,15 @@
 var fs = require('fs');
 var uglify = require('uglify-js').minify;
+var pkg = require('./package');
 
 fs.writeFileSync('dist/flexibility.js', uglify([
-	'/*! Flexibility 1.0.2 | MIT Licensed | github.com/10up/flexibility */\n',
+	'/*! Flexibility ',
+	pkg.version,
+	' | ',
+	pkg.license,
+	' Licensed | github.com/',
+	pkg.repository,
+	' */\n',
 	'(function () {',
 	[
 		'lib/core.js',

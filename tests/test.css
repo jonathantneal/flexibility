@@ -60,7 +60,14 @@ img {
 	-js-display: flex;
 	display: none;
 	display: flex;
+}
+
+.wrap {
 	flex-wrap: wrap;
+}
+
+.outline {
+	outline: 2px solid #f33;
 }
 
 .column {

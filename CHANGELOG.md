@@ -2,11 +2,19 @@
 
 [![NPM Version][npm-img]][npm] [![Build Status][ci-img]][ci]
 
+## 1.0.3 (2016-01-18)
+
+- Added: Support for `flex-grow` and partial support for `flex`.
+- Added: Support for `flex-flow`.
+- Updated: Improved support for IE9 inline styles
+- Updated: Documentation and tests
+- Updated: Build process
+
 ## 1.0.2 (2016-01-14)
 
 - Updated: Percentage calculations support
-- Updated: Build process
 - Updated: Tests
+- Updated: Build process
 
 ## 1.0.1 (2016-01-14)
 

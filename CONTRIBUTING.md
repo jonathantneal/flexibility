@@ -11,7 +11,9 @@ Found a problem? Want a new feature?
 - See if your issue or idea has [already been reported].
 - Provide a [reduced test case] or a [live example].
 
-Remember, a bug is a _demonstrable problem_ caused by _our_ code.
+These are as easy to do as they are to forget. So, to keep things moving along, issues that do not meet these standards will be removed after 1 day.
+
+And remember, a bug is a _demonstrable problem_ caused by _our_ code.
 
 ## Submitting Pull Requests
 
