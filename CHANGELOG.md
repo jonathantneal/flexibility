@@ -2,6 +2,11 @@
 
 [![NPM Version][npm-img]][npm] [![Build Status][ci-img]][ci]
 
+## 1.0.6 (2016-01-18)
+
+- Updated: Improved handling of css-layout
+- Updated: Cleanup length caching
+
 ## 1.0.5 (2016-01-18)
 
 - Updated: Height calculation on flex container
