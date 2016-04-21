@@ -40,16 +40,22 @@
   "bugs": "https://github.com/10up/flexibility/issues",
   "homepage": "https://github.com/10up/flexibility#readme",
   "watch": {
-    "build": "lib/*.js"
+    "build": {
+      "patterns": ["lib", "test"],
+      "extensions": "js",
+      "quiet": "true"
+    }
   },
   "scripts": {
-    "build": "node build.js",
+    "build": "browserify lib/index.js --standalone flexibility > flexibility.js",
     "prepublish": "npm run build",
-    "test": "eslint . && jscs ./lib/*.js",
+    "test": "eslint ./lib/ && jscs ./lib/**/*.js ./lib/flexbox/**/*.js",
     "watch": "npm-watch"
   },
   "dependencies": {},
   "devDependencies": {
+    "ava": "^0.14.0",
+    "browserify": "^13.0.0",
     "eslint": "^1.10.3",
     "jscs": "^2.8.0",
     "npm-watch": "^0.1.1",
