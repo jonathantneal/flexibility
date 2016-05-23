@@ -1,5 +1,7 @@
 # Flexibility
 
+[![Join the chat at https://gitter.im/10up/flexibility](https://badges.gitter.im/10up/flexibility.svg)](https://gitter.im/10up/flexibility?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 [![NPM Version][npm-img]][npm] [![Build Status][ci-img]][ci]
 
 [Flexibility] is a polyfill for the [Flexible Box Layout], commonly known as Flexbox. With Flexibility, you get to design beautiful, flexible layouts on the web without sacrificing the experience in older Internet Explorer browsers.
