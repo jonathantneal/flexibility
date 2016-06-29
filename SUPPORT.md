@@ -82,6 +82,31 @@ if (supportsFlexBox()) {
 }
 ```
 
+### Responding to Window Resize
+
+If recalculating Flexbox on resizes, be mindful of infinite loops caused by
+Flexbox itself triggering a resize. A small debounce will resolve this.
+
+```js
+var onresizeTimeout;
+
+window.onresize = onresize;
+
+function onresize() {
+	window.onresize = null;
+
+	if (!onresizeTimeout) {
+		onresizeTimeout = setTimeout(function () {
+			onresizeTimeout = null;
+
+			flexibility(container);
+
+			window.onresize = onresize;
+		}, 1000 / 60);
+	}
+}
+```
+
 ---
 
 If you experience an issue, read the [contributing] section before creating an
