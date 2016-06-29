@@ -1,3 +1,5 @@
+document.createElement('section');
+
 function test(name) {
 	var xhr = new XMLHttpRequest();
 
@@ -10,8 +12,6 @@ function test(name) {
 
 			if (frag.createElement) {
 				frag.createElement('section');
-
-				document.createElement('section');
 			}
 
 			html.innerHTML = xhr.responseText;
@@ -43,8 +43,6 @@ function control(name) {
 
 			if (frag.createElement) {
 				frag.createElement('section');
-
-				document.createElement('section');
 			}
 
 			html.innerHTML = xhr.responseText.replace(/data-style/g, 'data-style style');
@@ -74,8 +72,6 @@ function editableTest(name) {
 
 			if (frag.createElement) {
 				frag.createElement('section');
-
-				document.createElement('section');
 			}
 
 			html.innerHTML = xhr.responseText;
