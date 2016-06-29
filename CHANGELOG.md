@@ -1,6 +1,16 @@
 # Change Log
 
-[![NPM Version][npm-img]][npm] [![Build Status][ci-img]][ci]
+<a href="https://github.com/jonathantneal/flexibility"><img src="https://jonathantneal.github.io/flexibility/logo.svg" alt="Flexibility Logo" width="80" height="80" align="right"></a>
+
+[![npm][npm-image]][npm-url] [![bower][bower-image]][bower-url]
+[![ci][ci-image]][ci-url] [![gitter][gitter-image]][gitter-url]
+
+## 2.0.0 (2016-06-28)
+
+- Added: Support for flexboxes directly nested within flexboxes
+- Added: Support for `box-sizing`, `flex-basis`, `flex-shrink` and `margin`
+  properties
+- Updated: Complete rewrite
 
 ## 1.0.6 (2016-01-18)
 
@@ -75,12 +85,16 @@ To learn more about [Flexibility], read the [support] section.
 
 If you experience an issue, read the [contributing] section before creating an issue.
 
-[ci]:      https://travis-ci.org/10up/flexibility
-[ci-img]:  https://img.shields.io/travis/10up/flexibility.svg
-[npm]:     https://www.npmjs.com/package/flexibility
-[npm-img]: https://img.shields.io/npm/v/flexibility.svg
+[bower-image]:  https://img.shields.io/bower/v/flexibility.svg?style=flat-square
+[bower-url]:    https://libraries.io/bower/flexibility
+[ci-image]:     https://img.shields.io/travis/jonathantneal/flexibility.svg?style=flat-square
+[ci-url]:       https://travis-ci.org/jonathantneal/flexibility
+[gitter-image]: https://img.shields.io/gitter/room/jonathantneal/flexibility.svg?style=flat-square
+[gitter-url]:   https://gitter.im/jonathantneal/flexibility
+[npm-image]:    https://img.shields.io/npm/v/flexibility.svg?style=flat-square
+[npm-url]:      https://www.npmjs.com/package/flexibility
 
-[Flexibility]: https://github.com/10up/flexibility
+[Flexibility]: https://github.com/jonathantneal/flexibility
 
 [contributing]: CONTRIBUTING.md
 [support]: SUPPORT.md

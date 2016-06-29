@@ -1,20 +1,30 @@
-# Flexibility
+# flexibility
 
-[![NPM Version][npm-img]][npm] [![Build Status][ci-img]][ci]
+<a href="https://github.com/jonathantneal/flexibility"><img src="https://jonathantneal.github.io/flexibility/logo.svg" alt="Flexibility Logo" width="60" height="60" align="right"></a>
 
-[Flexibility] is a polyfill for the [Flexible Box Layout], commonly known as Flexbox. With Flexibility, you get to design beautiful, flexible layouts on the web without sacrificing the experience in older Internet Explorer browsers.
+> A JavaScript polyfill for Flexbox
 
-[![Screenshot of Flexibility][screenshot]][demo]
+[![npm][npm-image]][npm-url] [![bower][bower-image]][bower-url]
+[![ci][ci-image]][ci-url] [![gitter][gitter-image]][gitter-url]
 
-Flexbox is used lay out, align, and distribute elements in a container, even when their size is unknown or dynamic. To better understand Flexbox, read [Chris Coyier]’s excellent [Complete Guide to Flexbox].
+[Flexibility] is a polyfill for the [Flexible Box Layout], commonly known as
+Flexbox. With Flexibility, you get to design beautiful, flexible layouts on the
+web without sacrificing the experience in older browsers.
 
-To start using Flexbox in Internet Explorer 8 & 9, download the [flexibility.js] script and include it anywhere on your page.
+Flexbox lays out, aligns, and distributes elements in a container, even
+when their size is unknown or dynamic. To better understand Flexbox, read
+[Chris Coyier]’s excellent [Complete Guide to Flexbox].
+
+To start using Flexbox in Internet Explorer 8 & 9 or any older browser, download the
+[flexibility.js] script and include it anywhere on your page.
 
 ```html
 <script src="flexibility.js"></script>
 ```
 
-Next, add a `-js-display: flex` declaration before any `display: flex` declarations in your CSS, or use [PostCSS Flexibility] to automate this during your build process.
+If you’re only targeting Internet Explorer 10 and lower, add a
+`-js-display: flex` declaration before any `display: flex` declarations in your
+CSS, or use [PostCSS Flexibility] to automate this during your build process.
 
 ```css
 .container {
@@ -23,28 +33,70 @@ Next, add a `-js-display: flex` declaration before any `display: flex` declarati
 }
 ```
 
-[Flexibility] will automatically detect any flex-affected elements on the page and restyle them accordingly in Internet Explorer 8 & 9.
+If you’re targeting other browsers, use the `data-style` attribute to alert these browsers to your changes.
+
+```html
+<div data-style="display: flex;"></div>
+```
+
+When you’re ready to polyfill flexbox with JavaScript, use the `flexibility`
+method on the outermost element you would like to polyfill.
+
+```js
+flexibility(document.documentElement);
+```
+
+## API
+
+The global `flexibility` method contains child functions for use within your
+own framework.
+
+##### `flexibility.read`
+
+Argument: `Element`
+
+Return flexbox related styles from an element.
+
+##### `flexibility.readAll`
+
+Argument: `Element`
+
+Return a list of flexbox details from a matching element or its descendants.
+
+##### `flexibility.write`
+
+Argument: `Details`
+
+Writes flexbox details back to their respective elements.
+
+##### `flexibility.writeAll`
+
+Argument: `Array`
+
+Writes a list of flexbox details back to their respective elements.
 
 ---
 
 To learn more about [Flexibility], read the [support] section.
 
-If you experience an issue, read the [contributing] section before creating an issue.
+If you experience an issue, read the [contributing] section before creating an
+issue.
 
-[ci]:      https://travis-ci.org/10up/flexibility
-[ci-img]:  https://img.shields.io/travis/10up/flexibility.svg
-[npm]:     https://www.npmjs.com/package/flexibility
-[npm-img]: https://img.shields.io/npm/v/flexibility.svg
+[bower-image]:  https://img.shields.io/bower/v/flexibility.svg?style=flat-square
+[bower-url]:    https://libraries.io/bower/flexibility
+[ci-image]:     https://img.shields.io/travis/jonathantneal/flexibility.svg?style=flat-square
+[ci-url]:       https://travis-ci.org/jonathantneal/flexibility
+[gitter-image]: https://img.shields.io/gitter/room/jonathantneal/flexibility.svg?style=flat-square
+[gitter-url]:   https://gitter.im/jonathantneal/flexibility
+[npm-image]:    https://img.shields.io/npm/v/flexibility.svg?style=flat-square
+[npm-url]:      https://www.npmjs.com/package/flexibility
 
-[Flexibility]: https://github.com/10up/flexibility
 [contributing]: CONTRIBUTING.md
-[demo]: https://10up.github.io/flexibility/
-[flexibility.js]: dist/flexibility.js
-[screenshot]: https://10up.github.io/flexibility/screenshot.png
+[Flexibility]: https://github.com/jonathantneal/flexibility
+[flexibility.js]: flexibility.js
 [support]: SUPPORT.md
 
 [Chris Coyier]: https://twitter.com/chriscoyier
 [Complete Guide to Flexbox]: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
 [Flexible Box Layout]: http://www.w3.org/TR/css3-flexbox/
-[GNU General Public License]: https://github.com/10up/flexibility/blob/master/LICENSE.md
 [PostCSS Flexibility]: https://github.com/7rulnik/postcss-flexibility
