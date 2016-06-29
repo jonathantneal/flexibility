@@ -1,7 +1,7 @@
 {
   "name": "flexibility",
-  "version": "2.0.0",
-  "description": "Use Flexbox while supporting older Internet Explorers",
+  "version": "2.0.1",
+  "description": "A JavaScript polyfill for Flexbox",
   "main": "flexibility.js",
   "repository": "jonathantneal/flexibility",
   "keywords": [

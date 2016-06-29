@@ -1,6 +1,6 @@
 # Contributing
 
-<a href="https://github.com/jonathantneal/flexibility"><img src="https://jonathantneal.github.io/flexibility/logo.svg" alt="Flexibility Logo" width="80" height="80" align="right"></a>
+<a href="https://github.com/jonathantneal/flexibility"><img src="https://jonathantneal.github.io/flexibility/logo.svg" alt="Flexibility Logo" width="60" height="60" align="right"></a>
 
 [![npm][npm-image]][npm-url] [![bower][bower-image]][bower-url]
 [![ci][ci-image]][ci-url] [![gitter][gitter-image]][gitter-url]
