@@ -87,10 +87,14 @@ if (supportsFlexBox()) {
 If you experience an issue, read the [contributing] section before creating an
 issue.
 
-[ci]:      https://travis-ci.org/jonathantneal/flexibility
-[ci-img]:  https://img.shields.io/travis/jonathantneal/flexibility.svg
-[npm]:     https://www.npmjs.com/package/flexibility
-[npm-img]: https://img.shields.io/npm/v/flexibility.svg
+[bower-image]:  https://img.shields.io/bower/v/flexibility.svg?style=flat-square
+[bower-url]:    https://libraries.io/bower/flexibility
+[ci-image]:     https://img.shields.io/travis/jonathantneal/flexibility.svg?style=flat-square
+[ci-url]:       https://travis-ci.org/jonathantneal/flexibility
+[gitter-image]: https://img.shields.io/gitter/room/jonathantneal/flexibility.svg?style=flat-square
+[gitter-url]:   https://gitter.im/jonathantneal/flexibility
+[npm-image]:    https://img.shields.io/npm/v/flexibility.svg?style=flat-square
+[npm-url]:      https://www.npmjs.com/package/flexibility
 
 [Flexibility]: https://github.com/jonathantneal/flexibility
 
