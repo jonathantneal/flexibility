@@ -2,8 +2,8 @@
   "name": "flexibility",
   "version": "1.0.6",
   "description": "Use Flexbox while supporting older Internet Explorers",
-  "main": "dist/flexibility.js",
-  "repository": "10up/flexibility",
+  "main": "flexibility.js",
+  "repository": "jonathantneal/flexibility",
   "keywords": [
     "flex",
     "display",
@@ -35,28 +35,54 @@
     "explorer",
     "layout"
   ],
+  "files": [
+    "LICENSE.md",
+    "flexibility.js"
+  ],
   "author": "Jonathan Neal <jonathantneal@hotmail.com> (http://jonathantneal.com)",
   "license": "MIT",
-  "bugs": "https://github.com/10up/flexibility/issues",
-  "homepage": "https://github.com/10up/flexibility#readme",
+  "bugs": "https://github.com/jonathantneal/flexibility/issues",
+  "homepage": "https://github.com/jonathantneal/flexibility#readme",
   "watch": {
-    "build": "lib/*.js"
+    "compile-w-map": {
+      "patterns": [
+        "lib",
+        "test"
+      ],
+      "extensions": "js",
+      "quiet": "true"
+    }
   },
   "scripts": {
-    "build": "node build.js",
+    "compile": "browserify lib/index.js --standalone flexibility --outfile flexibility.js",
+    "compile-w-map": "browserify lib/index.js --debug --standalone flexibility --outfile flexibility.js",
+    "compress": "uglifyjs flexibility.js --compress --mangle --output flexibility.js",
+    "compress-w-map": "uglifyjs flexibility.js --compress --mangle --source-map flexibility.js.map --output flexibility.js",
+    "build": "npm run compile && npm run compress",
+    "eslint": "eslint ./lib/",
+    "jscs": "jscs ./lib/",
     "prepublish": "npm run build",
-    "test": "eslint . && jscs ./lib/*.js",
+    "test": "npm run jscs",
     "watch": "npm-watch"
   },
   "dependencies": {},
   "devDependencies": {
-    "eslint": "^1.10.3",
-    "jscs": "^2.8.0",
-    "npm-watch": "^0.1.1",
-    "uglify-js": "^2.6.1"
+    "ava": "^0.15.2",
+    "browserify": "^13.0.1",
+    "eslint": "^2.13.1",
+    "eslint-config-10up": "github:jonathantneal/eslint-config-10up",
+    "jscs": "^3.0.5",
+    "jscs-config-10up": "github:jonathantneal/jscs-config-10up",
+    "npm-watch": "^0.1.4",
+    "uglify-js": "^2.6.4"
   },
   "engines": {
-    "iojs": ">=2.0.0",
     "node": ">=0.12.0"
+  },
+  "jscsConfig": {
+    "preset": "10up"
+  },
+  "eslintConfig": {
+    "extends": "10up"
   }
 }
