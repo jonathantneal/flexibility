@@ -51,6 +51,37 @@ Once all of the flex values are processed, basic flex display is applied to the
 document. Then, [CSS Layout] calculates the positions for elements to simulate
 Flexbox.
 
+### Detecting Flexbox Support
+
+Flexibility does not include a detection script. You may already have one if
+you use Modernizr.
+
+```js
+if (Modernizr.flexbox && Modernizr.flexwrap) {
+	// Modern Flexbox with `flex-wrap` is supported
+} else {
+	flexibility(document.documentElement);
+}
+```
+
+You could also include your basic test.
+
+```js
+function supportsFlexBox() {
+	var test = document.createElement('test');
+
+	test.style.display = 'flex';
+
+	return test.style.display === 'flex';
+}
+
+if (supportsFlexBox()) {
+	// Modern Flexbox is supported
+} else {
+	flexibility(document.documentElement);
+}
+```
+
 ---
 
 If you experience an issue, read the [contributing] section before creating an
