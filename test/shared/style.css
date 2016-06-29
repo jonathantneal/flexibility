@@ -1,9 +1,15 @@
 * { margin: 0; }
+
 html { font: 100%/1 sans-serif; }
-body { background-color: #f3f3f3; margin: 20px; }
-section { display: block; margin: 10px 0 30px; }
-h1, h3 { margin: 0; }
+body { margin: 20px; }
+section { display: block; margin-top: 20px; }
+h1, h3 { margin: 40px 0 20px; }
 h3 { font-size: 100%; }
-section > div[data-style] { margin-top: 10px; }
-div[data-style] { background-color: #73a75c; border: 1px solid #3a542f; }
-div[data-style] span { background-color: #8fb97c; border: 1px solid #c7ddbd; color: #000000; display: inline-block; font-size: 14px; line-height: 15px; padding: 10px; text-align: center; }
+
+.wrap { background-color: #73a75c; border: 1px solid #3a542f; margin-top: 20px; padding: 10px; }
+.item { background-color: #8fb97c; border: 1px solid #c7ddbd; padding: 10px; }
+
+/* section > div[data-style] { background-color: #f9f9f9; border: 1px solid #eeeeee; margin-top: 10px; padding: 10px; }
+div[data-style] span { background-color: #f4f3f0; border: 1px solid #cccccc; padding: 10px; }
+div[data-style] span { background-color: #8fb97c; border: 1px solid #c7ddbd; color: #000000; display: inline-block; font-size: 14px; line-height: 15px; padding: 10px; text-align: center; } */
+

@@ -99,7 +99,7 @@ function editableTest(name) {
 
 			function onresize() {
 				window.onresize = null;
-				textarea.onresize = null;
+				textarea.onkeyup = null;
 
 				if (!onresizeTimeout) {
 					onresizeTimeout = setTimeout(function () {
@@ -123,7 +123,7 @@ function editableTest(name) {
 						} catch (error) {}
 
 						window.onresize = onresize;
-						textarea.onresize = onresize;
+						textarea.onkeyup = onresize;
 					}, 67);
 				}
 			}
