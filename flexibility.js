@@ -1,1 +1,954 @@
-!function(e){if("object"==typeof exports&&"undefined"!=typeof module)module.exports=e();else if("function"==typeof define&&define.amd)define([],e);else{var t;t="undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof self?self:this,t.flexibility=e()}}(function(){return function e(t,r,l){function n(f,i){if(!r[f]){if(!t[f]){var s="function"==typeof require&&require;if(!i&&s)return s(f,!0);if(o)return o(f,!0);var a=new Error("Cannot find module '"+f+"'");throw a.code="MODULE_NOT_FOUND",a}var c=r[f]={exports:{}};t[f][0].call(c.exports,function(e){var r=t[f][1][e];return n(r?r:e)},c,c.exports,e,t,r,l)}return r[f].exports}for(var o="function"==typeof require&&require,f=0;f<l.length;f++)n(l[f]);return n}({1:[function(e,t,r){t.exports=function(e){var t,r,l,n=-1;if(e.lines.length>1&&"flex-start"===e.style.alignContent)for(t=0;l=e.lines[++n];)l.crossStart=t,t+=l.cross;else if(e.lines.length>1&&"flex-end"===e.style.alignContent)for(t=e.flexStyle.crossSpace;l=e.lines[++n];)l.crossStart=t,t+=l.cross;else if(e.lines.length>1&&"center"===e.style.alignContent)for(t=e.flexStyle.crossSpace/2;l=e.lines[++n];)l.crossStart=t,t+=l.cross;else if(e.lines.length>1&&"space-between"===e.style.alignContent)for(r=e.flexStyle.crossSpace/(e.lines.length-1),t=0;l=e.lines[++n];)l.crossStart=t,t+=l.cross+r;else if(e.lines.length>1&&"space-around"===e.style.alignContent)for(r=2*e.flexStyle.crossSpace/(2*e.lines.length),t=r/2;l=e.lines[++n];)l.crossStart=t,t+=l.cross+r;else for(r=e.flexStyle.crossSpace/e.lines.length,t=e.flexStyle.crossInnerBefore;l=e.lines[++n];)l.crossStart=t,l.cross+=r,t+=l.cross}},{}],2:[function(e,t,r){t.exports=function(e){for(var t,r=-1;line=e.lines[++r];)for(t=-1;child=line.children[++t];){var l=child.style.alignSelf;"auto"===l&&(l=e.style.alignItems),"flex-start"===l?child.flexStyle.crossStart=line.crossStart:"flex-end"===l?child.flexStyle.crossStart=line.crossStart+line.cross-child.flexStyle.crossOuter:"center"===l?child.flexStyle.crossStart=line.crossStart+(line.cross-child.flexStyle.crossOuter)/2:(child.flexStyle.crossStart=line.crossStart,child.flexStyle.crossOuter=line.cross,child.flexStyle.cross=child.flexStyle.crossOuter-child.flexStyle.crossBefore-child.flexStyle.crossAfter)}}},{}],3:[function(e,t,r){t.exports=function e(t,e){var r="row"===e||"row-reverse"===e,l=t.mainAxis;if(l){var n=r&&"inline"===l||!r&&"block"===l;n||(t.flexStyle={main:t.flexStyle.cross,cross:t.flexStyle.main,mainOffset:t.flexStyle.crossOffset,crossOffset:t.flexStyle.mainOffset,mainBefore:t.flexStyle.crossBefore,mainAfter:t.flexStyle.crossAfter,crossBefore:t.flexStyle.mainBefore,crossAfter:t.flexStyle.mainAfter,mainInnerBefore:t.flexStyle.crossInnerBefore,mainInnerAfter:t.flexStyle.crossInnerAfter,crossInnerBefore:t.flexStyle.mainInnerBefore,crossInnerAfter:t.flexStyle.mainInnerAfter,mainBorderBefore:t.flexStyle.crossBorderBefore,mainBorderAfter:t.flexStyle.crossBorderAfter,crossBorderBefore:t.flexStyle.mainBorderBefore,crossBorderAfter:t.flexStyle.mainBorderAfter})}else r?t.flexStyle={main:t.style.width,cross:t.style.height,mainOffset:t.style.offsetWidth,crossOffset:t.style.offsetHeight,mainBefore:t.style.marginLeft,mainAfter:t.style.marginRight,crossBefore:t.style.marginTop,crossAfter:t.style.marginBottom,mainInnerBefore:t.style.paddingLeft,mainInnerAfter:t.style.paddingRight,crossInnerBefore:t.style.paddingTop,crossInnerAfter:t.style.paddingBottom,mainBorderBefore:t.style.borderLeftWidth,mainBorderAfter:t.style.borderRightWidth,crossBorderBefore:t.style.borderTopWidth,crossBorderAfter:t.style.borderBottomWidth}:t.flexStyle={main:t.style.height,cross:t.style.width,mainOffset:t.style.offsetHeight,crossOffset:t.style.offsetWidth,mainBefore:t.style.marginTop,mainAfter:t.style.marginBottom,crossBefore:t.style.marginLeft,crossAfter:t.style.marginRight,mainInnerBefore:t.style.paddingTop,mainInnerAfter:t.style.paddingBottom,crossInnerBefore:t.style.paddingLeft,crossInnerAfter:t.style.paddingRight,mainBorderBefore:t.style.borderTopWidth,mainBorderAfter:t.style.borderBottomWidth,crossBorderBefore:t.style.borderLeftWidth,crossBorderAfter:t.style.borderRightWidth},"content-box"===t.style.boxSizing&&("number"==typeof t.flexStyle.main&&(t.flexStyle.main+=t.flexStyle.mainInnerBefore+t.flexStyle.mainInnerAfter+t.flexStyle.mainBorderBefore+t.flexStyle.mainBorderAfter),"number"==typeof t.flexStyle.cross&&(t.flexStyle.cross+=t.flexStyle.crossInnerBefore+t.flexStyle.crossInnerAfter+t.flexStyle.crossBorderBefore+t.flexStyle.crossBorderAfter));t.mainAxis=r?"inline":"block",t.crossAxis=r?"block":"inline","number"==typeof t.style.flexBasis&&(t.flexStyle.main=t.style.flexBasis+t.flexStyle.mainInnerBefore+t.flexStyle.mainInnerAfter+t.flexStyle.mainBorderBefore+t.flexStyle.mainBorderAfter),t.flexStyle.mainOuter=t.flexStyle.main,t.flexStyle.crossOuter=t.flexStyle.cross,"auto"===t.flexStyle.mainOuter&&(t.flexStyle.mainOuter=t.flexStyle.mainOffset),"auto"===t.flexStyle.crossOuter&&(t.flexStyle.crossOuter=t.flexStyle.crossOffset),"number"==typeof t.flexStyle.mainBefore&&(t.flexStyle.mainOuter+=t.flexStyle.mainBefore),"number"==typeof t.flexStyle.mainAfter&&(t.flexStyle.mainOuter+=t.flexStyle.mainAfter),"number"==typeof t.flexStyle.crossBefore&&(t.flexStyle.crossOuter+=t.flexStyle.crossBefore),"number"==typeof t.flexStyle.crossAfter&&(t.flexStyle.crossOuter+=t.flexStyle.crossAfter)}},{}],4:[function(e,t,r){var l=e("../reduce");t.exports=function(e){if(e.mainSpace>0){var t=l(e.children,function(e,t){return e+parseFloat(t.style.flexGrow)},0);t>0&&(e.main=l(e.children,function(r,l){return"auto"===l.flexStyle.main?l.flexStyle.main=l.flexStyle.mainOffset+parseFloat(l.style.flexGrow)/t*e.mainSpace:l.flexStyle.main+=parseFloat(l.style.flexGrow)/t*e.mainSpace,l.flexStyle.mainOuter=l.flexStyle.main+l.flexStyle.mainBefore+l.flexStyle.mainAfter,r+l.flexStyle.mainOuter},0),e.mainSpace=0)}}},{"../reduce":12}],5:[function(e,t,r){var l=e("../reduce");t.exports=function(e){if(e.mainSpace<0){var t=l(e.children,function(e,t){return e+parseFloat(t.style.flexShrink)},0);t>0&&(e.main=l(e.children,function(r,l){return l.flexStyle.main+=parseFloat(l.style.flexShrink)/t*e.mainSpace,l.flexStyle.mainOuter=l.flexStyle.main+l.flexStyle.mainBefore+l.flexStyle.mainAfter,r+l.flexStyle.mainOuter},0),e.mainSpace=0)}}},{"../reduce":12}],6:[function(e,t,r){var l=e("../reduce");t.exports=function(e){var t;e.lines=[t={main:0,cross:0,children:[]}];for(var r,n=-1;r=e.children[++n];)"nowrap"===e.style.flexWrap||0===t.children.length||"auto"===e.flexStyle.main||e.flexStyle.main-e.flexStyle.mainInnerBefore-e.flexStyle.mainInnerAfter-e.flexStyle.mainBorderBefore-e.flexStyle.mainBorderAfter>=t.main+r.flexStyle.mainOuter?(t.main+=r.flexStyle.mainOuter,t.cross=Math.max(t.cross,r.flexStyle.crossOuter)):e.lines.push(t={main:r.flexStyle.mainOuter,cross:r.flexStyle.crossOuter,children:[]}),t.children.push(r);e.flexStyle.mainLines=l(e.lines,function(e,t){return Math.max(e,t.main)},0),e.flexStyle.crossLines=l(e.lines,function(e,t){return e+t.cross},0),"auto"===e.flexStyle.main&&(e.flexStyle.main=Math.max(e.flexStyle.mainOffset,e.flexStyle.mainLines+e.flexStyle.mainInnerBefore+e.flexStyle.mainInnerAfter+e.flexStyle.mainBorderBefore+e.flexStyle.mainBorderAfter)),"auto"===e.flexStyle.cross&&(e.flexStyle.cross=Math.max(e.flexStyle.crossOffset,e.flexStyle.crossLines+e.flexStyle.crossInnerBefore+e.flexStyle.crossInnerAfter+e.flexStyle.crossBorderBefore+e.flexStyle.crossBorderAfter)),e.flexStyle.crossSpace=e.flexStyle.cross-e.flexStyle.crossInnerBefore-e.flexStyle.crossInnerAfter-e.flexStyle.crossBorderBefore-e.flexStyle.crossBorderAfter-e.flexStyle.crossLines,e.flexStyle.mainOuter=e.flexStyle.main+e.flexStyle.mainBefore+e.flexStyle.mainAfter,e.flexStyle.crossOuter=e.flexStyle.cross+e.flexStyle.crossBefore+e.flexStyle.crossAfter}},{"../reduce":12}],7:[function(e,t,r){function l(t){for(var r,l=-1;r=t.children[++l];)e("./flex-direction")(r,t.style.flexDirection);e("./flex-direction")(t,t.style.flexDirection),e("./order")(t),e("./flexbox-lines")(t),e("./align-content")(t),l=-1;for(var n;n=t.lines[++l];)n.mainSpace=t.flexStyle.main-t.flexStyle.mainInnerBefore-t.flexStyle.mainInnerAfter-t.flexStyle.mainBorderBefore-t.flexStyle.mainBorderAfter-n.main,e("./flex-grow")(n),e("./flex-shrink")(n),e("./margin-main")(n),e("./margin-cross")(n),e("./justify-content")(n,t.style.justifyContent,t);e("./align-items")(t)}t.exports=l},{"./align-content":1,"./align-items":2,"./flex-direction":3,"./flex-grow":4,"./flex-shrink":5,"./flexbox-lines":6,"./justify-content":8,"./margin-cross":9,"./margin-main":10,"./order":11}],8:[function(e,t,r){t.exports=function(e,t,r){var l,n,o,f=r.flexStyle.mainInnerBefore,i=-1;if("flex-end"===t)for(l=e.mainSpace,l+=f;o=e.children[++i];)o.flexStyle.mainStart=l,l+=o.flexStyle.mainOuter;else if("center"===t)for(l=e.mainSpace/2,l+=f;o=e.children[++i];)o.flexStyle.mainStart=l,l+=o.flexStyle.mainOuter;else if("space-between"===t)for(n=e.mainSpace/(e.children.length-1),l=0,l+=f;o=e.children[++i];)o.flexStyle.mainStart=l,l+=o.flexStyle.mainOuter+n;else if("space-around"===t)for(n=2*e.mainSpace/(2*e.children.length),l=n/2,l+=f;o=e.children[++i];)o.flexStyle.mainStart=l,l+=o.flexStyle.mainOuter+n;else for(l=0,l+=f;o=e.children[++i];)o.flexStyle.mainStart=l,l+=o.flexStyle.mainOuter}},{}],9:[function(e,t,r){t.exports=function(e){for(var t,r=-1;t=e.children[++r];){var l=0;"auto"===t.flexStyle.crossBefore&&++l,"auto"===t.flexStyle.crossAfter&&++l;var n=e.cross-t.flexStyle.crossOuter;"auto"===t.flexStyle.crossBefore&&(t.flexStyle.crossBefore=n/l),"auto"===t.flexStyle.crossAfter&&(t.flexStyle.crossAfter=n/l),"auto"===t.flexStyle.cross?t.flexStyle.crossOuter=t.flexStyle.crossOffset+t.flexStyle.crossBefore+t.flexStyle.crossAfter:t.flexStyle.crossOuter=t.flexStyle.cross+t.flexStyle.crossBefore+t.flexStyle.crossAfter}}},{}],10:[function(e,t,r){t.exports=function(e){for(var t,r=0,l=-1;t=e.children[++l];)"auto"===t.flexStyle.mainBefore&&++r,"auto"===t.flexStyle.mainAfter&&++r;if(r>0){for(l=-1;t=e.children[++l];)"auto"===t.flexStyle.mainBefore&&(t.flexStyle.mainBefore=e.mainSpace/r),"auto"===t.flexStyle.mainAfter&&(t.flexStyle.mainAfter=e.mainSpace/r),"auto"===t.flexStyle.main?t.flexStyle.mainOuter=t.flexStyle.mainOffset+t.flexStyle.mainBefore+t.flexStyle.mainAfter:t.flexStyle.mainOuter=t.flexStyle.main+t.flexStyle.mainBefore+t.flexStyle.mainAfter;e.mainSpace=0}}},{}],11:[function(e,t,r){var l=/^(column|row)-reverse$/;t.exports=function(e){e.children.sort(function(e,t){return e.style.order-t.style.order||e.index-t.index}),l.test(e.style.flexDirection)&&e.children.reverse()}},{}],12:[function(e,t,r){function l(e,t,r){for(var l=e.length,n=-1;++n<l;)n in e&&(r=t(r,e[n],n));return r}t.exports=l},{}],13:[function(e,t,r){function l(e){i(f(e))}var n=e("./read"),o=e("./write"),f=e("./readAll"),i=e("./writeAll");t.exports=l,t.exports.read=n,t.exports.write=o,t.exports.readAll=f,t.exports.writeAll=i},{"./read":15,"./readAll":16,"./write":17,"./writeAll":18}],14:[function(e,t,r){function l(e,t,r){var l=e[t],f=String(l).match(o);if(!f){var a=t.match(s);if(a){var c=e["border"+a[1]+"Style"];return"none"===c?0:i[l]||0}return l}var y=f[1],x=f[2];return"px"===x?1*y:"cm"===x?.3937*y*96:"in"===x?96*y:"mm"===x?.3937*y*96/10:"pc"===x?12*y*96/72:"pt"===x?96*y/72:"rem"===x?16*y:n(l,r)}function n(e,t){f.style.cssText="border:none!important;clip:rect(0 0 0 0)!important;display:block!important;font-size:1em!important;height:0!important;margin:0!important;padding:0!important;position:relative!important;width:"+e+"!important",t.parentNode.insertBefore(f,t.nextSibling);var r=f.offsetWidth;return t.parentNode.removeChild(f),r}t.exports=l;var o=/^([-+]?\d*\.?\d+)(%|[a-z]+)$/,f=document.createElement("div"),i={medium:4,none:0,thick:6,thin:2},s=/^border(Bottom|Left|Right|Top)Width$/},{}],15:[function(e,t,r){function l(e){var t={alignContent:"stretch",alignItems:"stretch",alignSelf:"auto",borderBottomStyle:"none",borderBottomWidth:0,borderLeftStyle:"none",borderLeftWidth:0,borderRightStyle:"none",borderRightWidth:0,borderTopStyle:"none",borderTopWidth:0,boxSizing:"content-box",display:"inline",flexBasis:"auto",flexDirection:"row",flexGrow:0,flexShrink:1,flexWrap:"nowrap",justifyContent:"flex-start",height:"auto",marginTop:0,marginRight:0,marginLeft:0,marginBottom:0,paddingTop:0,paddingRight:0,paddingLeft:0,paddingBottom:0,maxHeight:"none",maxWidth:"none",minHeight:0,minWidth:0,order:0,position:"static",width:"auto"},r=e instanceof Element;if(r){var l=e.hasAttribute("data-style"),i=l?e.getAttribute("data-style"):e.getAttribute("style")||"";l||e.setAttribute("data-style",i);var s=window.getComputedStyle&&getComputedStyle(e)||{};f(t,s);var c=e.currentStyle||{};n(t,c),o(t,i);for(var y in t)t[y]=a(t,y,e);var x=e.getBoundingClientRect();t.offsetHeight=x.height||e.offsetHeight,t.offsetWidth=x.width||e.offsetWidth}var S={element:e,style:t};return S}function n(e,t){for(var r in e){var l=r in t;if(l)e[r]=t[r];else{var n=r.replace(/[A-Z]/g,"-$&").toLowerCase(),o=n in t;o&&(e[r]=t[n])}}var f="-js-display"in t;f&&(e.display=t["-js-display"])}function o(e,t){for(var r;r=i.exec(t);){var l=r[1].toLowerCase().replace(/-[a-z]/g,function(e){return e.slice(1).toUpperCase()});e[l]=r[2]}}function f(e,t){for(var r in e){var l=r in t;l&&!s.test(r)&&(e[r]=t[r])}}t.exports=l;var i=/([^\s:;]+)\s*:\s*([^;]+?)\s*(;|$)/g,s=/^(alignSelf|height|width)$/,a=e("./getComputedLength")},{"./getComputedLength":14}],16:[function(e,t,r){function l(e){var t=[];return n(e,t),t}function n(e,t){for(var r,l=o(e),i=[],s=-1;r=e.childNodes[++s];){var a=3===r.nodeType&&!/^\s*$/.test(r.nodeValue);if(l&&a){var c=r;r=e.insertBefore(document.createElement("flex-item"),c),r.appendChild(c)}var y=r instanceof Element;if(y){var x=n(r,t);if(l){var S=r.style;S.display="inline-block",S.position="absolute",x.style=f(r).style,i.push(x)}}}var m={element:e,children:i};return l&&(m.style=f(e).style,t.push(m)),m}function o(e){var t=e instanceof Element,r=t&&e.getAttribute("data-style"),l=t&&e.currentStyle&&e.currentStyle["-js-display"],n=i.test(r)||s.test(l);return n}t.exports=l;var f=e("../read"),i=/(^|;)\s*display\s*:\s*(inline-)?flex\s*(;|$)/i,s=/^(inline-)?flex$/i},{"../read":15}],17:[function(t,r,l){function n(e){f(e);var t=e.element.style,r="inline"===e.mainAxis?["main","cross"]:["cross","main"];t.boxSizing="content-box",t.display="block",t.position="relative",t.width=o(e.flexStyle[r[0]]-e.flexStyle[r[0]+"InnerBefore"]-e.flexStyle[r[0]+"InnerAfter"]-e.flexStyle[r[0]+"BorderBefore"]-e.flexStyle[r[0]+"BorderAfter"]),t.height=o(e.flexStyle[r[1]]-e.flexStyle[r[1]+"InnerBefore"]-e.flexStyle[r[1]+"InnerAfter"]-e.flexStyle[r[1]+"BorderBefore"]-e.flexStyle[r[1]+"BorderAfter"]);for(var l,n=-1;l=e.children[++n];){var i=l.element.style,s="inline"===l.mainAxis?["main","cross"]:["cross","main"];i.boxSizing="content-box",i.display="block",i.position="absolute","auto"!==l.flexStyle[s[0]]&&(i.width=o(l.flexStyle[s[0]]-l.flexStyle[s[0]+"InnerBefore"]-l.flexStyle[s[0]+"InnerAfter"]-l.flexStyle[s[0]+"BorderBefore"]-l.flexStyle[s[0]+"BorderAfter"])),"auto"!==l.flexStyle[s[1]]&&(i.height=o(l.flexStyle[s[1]]-l.flexStyle[s[1]+"InnerBefore"]-l.flexStyle[s[1]+"InnerAfter"]-l.flexStyle[s[1]+"BorderBefore"]-l.flexStyle[s[1]+"BorderAfter"])),i.top=o(l.flexStyle[s[1]+"Start"]),i.left=o(l.flexStyle[s[0]+"Start"]),i.marginTop=o(l.flexStyle[s[1]+"Before"]),i.marginRight=o(l.flexStyle[s[0]+"After"]),i.marginBottom=o(l.flexStyle[s[1]+"After"]),i.marginLeft=o(l.flexStyle[s[0]+"Before"])}}function o(t){return NaN!=typeof e&&parseInt(e)?"string"==typeof t?t:Math.max(t,0)+"px":"0px"}r.exports=n;var f=t("../flexbox")},{"../flexbox":7}],18:[function(e,t,r){function l(e){for(var t,r=-1;t=e[++r];)n(t)}t.exports=l;var n=e("../write")},{"../write":17}]},{},[13])(13)});
+(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.flexibility = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+module.exports = function alignContent(details) {
+	var start;
+	var factor;
+
+	var index = -1;
+	var line;
+
+	if (details.lines.length > 1 && details.style.alignContent === 'flex-start') {
+		start = 0;
+
+		while (line = details.lines[++index]) {
+			line.crossStart = start;
+
+			start += line.cross;
+		}
+	} else if (details.lines.length > 1 && details.style.alignContent === 'flex-end') {
+		start = details.flexStyle.crossSpace;
+
+		while (line = details.lines[++index]) {
+			line.crossStart = start;
+
+			start += line.cross;
+		}
+	} else if (details.lines.length > 1 && details.style.alignContent === 'center') {
+		start = details.flexStyle.crossSpace / 2;
+
+		while (line = details.lines[++index]) {
+			line.crossStart = start;
+
+			start += line.cross;
+		}
+	} else if (details.lines.length > 1 && details.style.alignContent === 'space-between') {
+		factor = details.flexStyle.crossSpace / (details.lines.length - 1);
+		start = 0;
+
+		while (line = details.lines[++index]) {
+			line.crossStart = start;
+
+			start += line.cross + factor;
+		}
+	} else if (details.lines.length > 1 && details.style.alignContent === 'space-around') {
+		factor = details.flexStyle.crossSpace * 2 / (details.lines.length * 2);
+		start = factor / 2;
+
+		while (line = details.lines[++index]) {
+			line.crossStart = start;
+
+			start += line.cross + factor;
+		}
+	} else {
+		factor = details.flexStyle.crossSpace / details.lines.length;
+		start = details.flexStyle.crossInnerBefore;
+
+		while (line = details.lines[++index]) {
+			line.crossStart = start;
+			line.cross += factor;
+
+			start += line.cross;
+		}
+	}
+};
+
+},{}],2:[function(require,module,exports){
+module.exports = function alignItems(details) {
+	var indexA = -1;
+	var indexB;
+
+	while (line = details.lines[++indexA]) {
+		indexB = -1;
+
+		while (child = line.children[++indexB]) {
+			var alignSelf = child.style.alignSelf;
+
+			if (alignSelf === 'auto') {
+				alignSelf = details.style.alignItems;
+			}
+
+			if (alignSelf === 'flex-start') {
+				child.flexStyle.crossStart = line.crossStart;
+			} else if (alignSelf === 'flex-end') {
+				child.flexStyle.crossStart = line.crossStart + line.cross - child.flexStyle.crossOuter;
+			} else if (alignSelf === 'center') {
+				child.flexStyle.crossStart = line.crossStart + (line.cross - child.flexStyle.crossOuter) / 2;
+			} else {
+				child.flexStyle.crossStart = line.crossStart;
+				child.flexStyle.crossOuter = line.cross;
+
+				child.flexStyle.cross = child.flexStyle.crossOuter - child.flexStyle.crossBefore - child.flexStyle.crossAfter;
+			}
+		}
+	}
+};
+
+},{}],3:[function(require,module,exports){
+module.exports = function flexDirection(target, flexDirection) {
+	var isInline = flexDirection === 'row' || flexDirection === 'row-reverse';
+	var existingAxis = target.mainAxis;
+
+	if (existingAxis) {
+		var isMatchingInline = isInline && existingAxis === 'inline' || !isInline && existingAxis === 'block';
+
+		if (!isMatchingInline) {
+			target.flexStyle = {
+				main:  target.flexStyle.cross,
+				cross: target.flexStyle.main,
+
+				mainOffset:  target.flexStyle.crossOffset,
+				crossOffset: target.flexStyle.mainOffset,
+
+				mainBefore:  target.flexStyle.crossBefore,
+				mainAfter:   target.flexStyle.crossAfter,
+				crossBefore: target.flexStyle.mainBefore,
+				crossAfter:  target.flexStyle.mainAfter,
+
+				mainInnerBefore:  target.flexStyle.crossInnerBefore,
+				mainInnerAfter:   target.flexStyle.crossInnerAfter,
+				crossInnerBefore: target.flexStyle.mainInnerBefore,
+				crossInnerAfter:  target.flexStyle.mainInnerAfter,
+
+				mainBorderBefore:  target.flexStyle.crossBorderBefore,
+				mainBorderAfter:   target.flexStyle.crossBorderAfter,
+				crossBorderBefore: target.flexStyle.mainBorderBefore,
+				crossBorderAfter:  target.flexStyle.mainBorderAfter
+			};
+		}
+	} else {
+		if (isInline) {
+			target.flexStyle = {
+				main:  target.style.width,
+				cross: target.style.height,
+
+				mainOffset:  target.style.offsetWidth,
+				crossOffset: target.style.offsetHeight,
+
+				mainBefore:  target.style.marginLeft,
+				mainAfter:   target.style.marginRight,
+				crossBefore: target.style.marginTop,
+				crossAfter:  target.style.marginBottom,
+
+				mainInnerBefore:  target.style.paddingLeft,
+				mainInnerAfter:   target.style.paddingRight,
+				crossInnerBefore: target.style.paddingTop,
+				crossInnerAfter:  target.style.paddingBottom,
+
+				mainBorderBefore:  target.style.borderLeftWidth,
+				mainBorderAfter:   target.style.borderRightWidth,
+				crossBorderBefore: target.style.borderTopWidth,
+				crossBorderAfter:  target.style.borderBottomWidth
+			};
+		} else {
+			target.flexStyle = {
+				main:  target.style.height,
+				cross: target.style.width,
+
+				mainOffset:  target.style.offsetHeight,
+				crossOffset: target.style.offsetWidth,
+
+				mainBefore:  target.style.marginTop,
+				mainAfter:   target.style.marginBottom,
+				crossBefore: target.style.marginLeft,
+				crossAfter:  target.style.marginRight,
+
+				mainInnerBefore:  target.style.paddingTop,
+				mainInnerAfter:   target.style.paddingBottom,
+				crossInnerBefore: target.style.paddingLeft,
+				crossInnerAfter:  target.style.paddingRight,
+
+				mainBorderBefore:  target.style.borderTopWidth,
+				mainBorderAfter:   target.style.borderBottomWidth,
+				crossBorderBefore: target.style.borderLeftWidth,
+				crossBorderAfter:  target.style.borderRightWidth
+			};
+		}
+
+		if (target.style.boxSizing === 'content-box') {
+			if (typeof target.flexStyle.main === 'number') {
+				target.flexStyle.main += target.flexStyle.mainInnerBefore + target.flexStyle.mainInnerAfter + target.flexStyle.mainBorderBefore + target.flexStyle.mainBorderAfter;
+			}
+
+			if (typeof target.flexStyle.cross === 'number') {
+				target.flexStyle.cross += target.flexStyle.crossInnerBefore + target.flexStyle.crossInnerAfter + target.flexStyle.crossBorderBefore + target.flexStyle.crossBorderAfter;
+			}
+		}
+	}
+
+	target.mainAxis  = isInline ? 'inline' : 'block';
+	target.crossAxis = isInline ? 'block' : 'inline';
+
+	if (typeof target.style.flexBasis === 'number') {
+		target.flexStyle.main = target.style.flexBasis + target.flexStyle.mainInnerBefore + target.flexStyle.mainInnerAfter + target.flexStyle.mainBorderBefore + target.flexStyle.mainBorderAfter;
+	}
+
+	target.flexStyle.mainOuter  = target.flexStyle.main;
+	target.flexStyle.crossOuter = target.flexStyle.cross;
+
+	if (target.flexStyle.mainOuter === 'auto') {
+		target.flexStyle.mainOuter = target.flexStyle.mainOffset;
+	}
+
+	if (target.flexStyle.crossOuter === 'auto') {
+		target.flexStyle.crossOuter = target.flexStyle.crossOffset;
+	}
+
+	if (typeof target.flexStyle.mainBefore === 'number') {
+		target.flexStyle.mainOuter += target.flexStyle.mainBefore;
+	}
+
+	if (typeof target.flexStyle.mainAfter === 'number') {
+		target.flexStyle.mainOuter += target.flexStyle.mainAfter;
+	}
+
+	if (typeof target.flexStyle.crossBefore === 'number') {
+		target.flexStyle.crossOuter += target.flexStyle.crossBefore;
+	}
+
+	if (typeof target.flexStyle.crossAfter === 'number') {
+		target.flexStyle.crossOuter += target.flexStyle.crossAfter;
+	}
+};
+
+},{}],4:[function(require,module,exports){
+var reduce = require('../reduce');
+
+module.exports = function flexGrow(line) {
+	if (line.mainSpace > 0) {
+		var growFactor = reduce(line.children, function (lastGrowFactor, child) {
+			return lastGrowFactor + parseFloat(child.style.flexGrow);
+		}, 0);
+
+		if (growFactor > 0) {
+			line.main = reduce(line.children, function (main, child) {
+				if (child.flexStyle.main === 'auto') {
+					child.flexStyle.main = child.flexStyle.mainOffset + parseFloat(child.style.flexGrow) / growFactor * line.mainSpace;
+				} else {
+					child.flexStyle.main += parseFloat(child.style.flexGrow) / growFactor * line.mainSpace;
+				}
+
+				child.flexStyle.mainOuter = child.flexStyle.main + child.flexStyle.mainBefore + child.flexStyle.mainAfter;
+
+				return main + child.flexStyle.mainOuter;
+			}, 0);
+
+			line.mainSpace = 0;
+		}
+	}
+};
+
+},{"../reduce":12}],5:[function(require,module,exports){
+var reduce = require('../reduce');
+
+module.exports = function flexShrink(line) {
+	if (line.mainSpace < 0) {
+		var shrinkFactor = reduce(line.children, function (lastShrinkFactor, child) {
+			return lastShrinkFactor + parseFloat(child.style.flexShrink);
+		}, 0);
+
+		if (shrinkFactor > 0) {
+			line.main = reduce(line.children, function (main, child) {
+				child.flexStyle.main += parseFloat(child.style.flexShrink) / shrinkFactor * line.mainSpace;
+
+				child.flexStyle.mainOuter = child.flexStyle.main + child.flexStyle.mainBefore + child.flexStyle.mainAfter;
+
+				return main + child.flexStyle.mainOuter;
+			}, 0);
+
+			line.mainSpace = 0;
+		}
+	}
+};
+
+},{"../reduce":12}],6:[function(require,module,exports){
+var reduce = require('../reduce');
+
+module.exports = function flexboxLines(details) {
+	var line;
+
+	details.lines = [line = {
+		main:  0,
+		cross: 0,
+		children: []
+	}];
+
+	var index = -1;
+	var child;
+
+	while (child = details.children[++index]) {
+		if (
+			details.style.flexWrap === 'nowrap' ||
+			line.children.length === 0 ||
+			details.flexStyle.main === 'auto' ||
+			details.flexStyle.main - details.flexStyle.mainInnerBefore - details.flexStyle.mainInnerAfter - details.flexStyle.mainBorderBefore - details.flexStyle.mainBorderAfter >= line.main + child.flexStyle.mainOuter
+		) {
+			line.main += child.flexStyle.mainOuter;
+			line.cross = Math.max(line.cross, child.flexStyle.crossOuter);
+		} else {
+			details.lines.push(line = {
+				main:  child.flexStyle.mainOuter,
+				cross: child.flexStyle.crossOuter,
+				children: []
+			});
+		}
+
+		line.children.push(child);
+	}
+
+	details.flexStyle.mainLines = reduce(details.lines, function (mainLines, item) {
+		return Math.max(mainLines, item.main);
+	}, 0);
+
+	details.flexStyle.crossLines = reduce(details.lines, function (crossLines, item) {
+		return crossLines + item.cross;
+	}, 0);
+
+	if (details.flexStyle.main === 'auto') {
+		details.flexStyle.main = Math.max(details.flexStyle.mainOffset, details.flexStyle.mainLines + details.flexStyle.mainInnerBefore + details.flexStyle.mainInnerAfter + details.flexStyle.mainBorderBefore + details.flexStyle.mainBorderAfter);
+	}
+
+	if (details.flexStyle.cross === 'auto') {
+		details.flexStyle.cross = Math.max(details.flexStyle.crossOffset, details.flexStyle.crossLines + details.flexStyle.crossInnerBefore + details.flexStyle.crossInnerAfter + details.flexStyle.crossBorderBefore + details.flexStyle.crossBorderAfter);
+	}
+
+	details.flexStyle.crossSpace = details.flexStyle.cross - details.flexStyle.crossInnerBefore - details.flexStyle.crossInnerAfter - details.flexStyle.crossBorderBefore - details.flexStyle.crossBorderAfter - details.flexStyle.crossLines;
+
+	details.flexStyle.mainOuter  = details.flexStyle.main  + details.flexStyle.mainBefore  + details.flexStyle.mainAfter;
+	details.flexStyle.crossOuter = details.flexStyle.cross + details.flexStyle.crossBefore + details.flexStyle.crossAfter;
+};
+
+},{"../reduce":12}],7:[function(require,module,exports){
+module.exports = flexbox;
+
+function flexbox(details) {
+	var index = -1;
+	var child;
+
+	// for each flex child
+	while (child = details.children[++index]) {
+		// process child styles as metrics
+		require('./flex-direction')(child, details.style.flexDirection);
+	}
+
+	// process target styles as metrics
+	require('./flex-direction')(details, details.style.flexDirection);
+
+	// process ordering of items
+	require('./order')(details);
+
+	// process flexbox items into lines
+	require('./flexbox-lines')(details);
+
+	// process align-content item metrics
+	require('./align-content')(details);
+
+	index = -1;
+	var line;
+
+	// for each line of items in the target
+	while (line = details.lines[++index]) {
+		line.mainSpace = details.flexStyle.main - details.flexStyle.mainInnerBefore - details.flexStyle.mainInnerAfter - details.flexStyle.mainBorderBefore - details.flexStyle.mainBorderAfter - line.main;
+
+		// process flex-grow item metrics
+		require('./flex-grow')(line);
+
+		// process flex-shrink item metrics
+		require('./flex-shrink')(line);
+
+		// process margin item metrics
+		require('./margin-main')(line);
+		require('./margin-cross')(line);
+
+		// process justify-content item metrics
+		require('./justify-content')(line, details.style.justifyContent, details);
+	}
+
+	// process align-items metrics
+	require('./align-items')(details);
+}
+
+},{"./align-content":1,"./align-items":2,"./flex-direction":3,"./flex-grow":4,"./flex-shrink":5,"./flexbox-lines":6,"./justify-content":8,"./margin-cross":9,"./margin-main":10,"./order":11}],8:[function(require,module,exports){
+module.exports = function justifyContent(line, targetJustifyContent, details) {
+	var start;
+	var factor;
+
+	var inset = details.flexStyle.mainInnerBefore;
+
+	var index = -1;
+	var child;
+
+	if (targetJustifyContent === 'flex-end') {
+		start = line.mainSpace;
+
+		start += inset;
+
+		while (child = line.children[++index]) {
+			child.flexStyle.mainStart = start;
+
+			start += child.flexStyle.mainOuter;
+		}
+	} else if (targetJustifyContent === 'center') {
+		start = line.mainSpace / 2;
+
+		start += inset;
+
+		while (child = line.children[++index]) {
+			child.flexStyle.mainStart = start;
+
+			start += child.flexStyle.mainOuter;
+		}
+	} else if (targetJustifyContent === 'space-between') {
+		factor = line.mainSpace / (line.children.length - 1);
+
+		start = 0;
+
+		start += inset;
+
+		while (child = line.children[++index]) {
+			child.flexStyle.mainStart = start;
+
+			start += child.flexStyle.mainOuter + factor;
+		}
+	} else if (targetJustifyContent === 'space-around') {
+		factor = line.mainSpace * 2 / (line.children.length * 2);
+		start = factor / 2;
+
+		start += inset;
+
+		while (child = line.children[++index]) {
+			child.flexStyle.mainStart = start;
+
+			start += child.flexStyle.mainOuter + factor;
+		}
+	} else {
+		start = 0;
+
+		start += inset;
+
+		while (child = line.children[++index]) {
+			child.flexStyle.mainStart = start;
+
+			start += child.flexStyle.mainOuter;
+		}
+	}
+};
+
+},{}],9:[function(require,module,exports){
+module.exports = function marginCross(line) {
+	var index = -1;
+	var child;
+
+	while (child = line.children[++index]) {
+		var count = 0;
+
+		if (child.flexStyle.crossBefore === 'auto') {
+			++count;
+		}
+
+		if (child.flexStyle.crossAfter === 'auto') {
+			++count;
+		}
+
+		var childSpace = line.cross - child.flexStyle.crossOuter;
+
+		if (child.flexStyle.crossBefore === 'auto') {
+			child.flexStyle.crossBefore = childSpace / count;
+		}
+
+		if (child.flexStyle.crossAfter === 'auto') {
+			child.flexStyle.crossAfter = childSpace / count;
+		}
+
+		if (child.flexStyle.cross === 'auto') {
+			child.flexStyle.crossOuter = child.flexStyle.crossOffset + child.flexStyle.crossBefore + child.flexStyle.crossAfter;
+		} else {
+			child.flexStyle.crossOuter = child.flexStyle.cross + child.flexStyle.crossBefore + child.flexStyle.crossAfter;
+		}
+	}
+};
+
+},{}],10:[function(require,module,exports){
+module.exports = function marginMain(line) {
+	var count = 0;
+
+	var index = -1;
+	var child;
+
+	while (child = line.children[++index]) {
+		if (child.flexStyle.mainBefore === 'auto') {
+			++count;
+		}
+
+		if (child.flexStyle.mainAfter === 'auto') {
+			++count;
+		}
+	}
+
+	if (count > 0) {
+		index = -1;
+
+		while (child = line.children[++index]) {
+			if (child.flexStyle.mainBefore === 'auto') {
+				child.flexStyle.mainBefore = line.mainSpace / count;
+			}
+
+			if (child.flexStyle.mainAfter === 'auto') {
+				child.flexStyle.mainAfter = line.mainSpace / count;
+			}
+
+			if (child.flexStyle.main === 'auto') {
+				child.flexStyle.mainOuter = child.flexStyle.mainOffset + child.flexStyle.mainBefore + child.flexStyle.mainAfter;
+			} else {
+				child.flexStyle.mainOuter = child.flexStyle.main + child.flexStyle.mainBefore + child.flexStyle.mainAfter;
+			}
+		}
+
+		line.mainSpace = 0;
+	}
+};
+
+},{}],11:[function(require,module,exports){
+var flexDirectionReverseMatch = /^(column|row)-reverse$/;
+
+module.exports = function order(target) {
+	target.children.sort(function (childA, childB) {
+		return childA.style.order - childB.style.order || childA.index - childB.index;
+	});
+
+	if (flexDirectionReverseMatch.test(target.style.flexDirection)) {
+		target.children.reverse();
+	}
+};
+
+},{}],12:[function(require,module,exports){
+module.exports = reduce;
+
+function reduce(arraylike, callback, previousValue) {
+	var length = arraylike.length;
+	var index = -1;
+
+	while (++index < length) {
+		if (index in arraylike) {
+			previousValue = callback(previousValue, arraylike[index], index);
+		}
+	}
+
+	return previousValue;
+}
+
+},{}],13:[function(require,module,exports){
+/*! Flexibility 2.0.0 | MIT Licensed | github.com/jonathantneal/flexibility */
+
+var read  = require('./read');
+var write = require('./write');
+
+var readAll  = require('./readAll');
+var writeAll = require('./writeAll');
+
+module.exports = flexibility;
+
+module.exports.read  = read;
+module.exports.write = write;
+
+module.exports.readAll  = readAll;
+module.exports.writeAll = writeAll;
+
+function flexibility(target) {
+	writeAll(readAll(target));
+}
+
+},{"./read":15,"./readAll":16,"./write":17,"./writeAll":18}],14:[function(require,module,exports){
+module.exports = getComputedLength;
+
+var lengthMatch = /^([-+]?\d*\.?\d+)(%|[a-z]+)$/;
+
+var testElement = document.createElement('div');
+
+var borderWidths = {
+	medium: 4,
+	none:   0,
+	thick:  6,
+	thin:   2
+};
+
+var borderWidthPropMatch = /^border(Bottom|Left|Right|Top)Width$/;
+
+function getComputedLength(style, prop, element) {
+	var value = style[prop];
+	var match = String(value).match(lengthMatch);
+
+	if (!match) {
+		var borderWidthProp = prop.match(borderWidthPropMatch);
+
+		if (borderWidthProp) {
+			var borderStyleProp = style['border' + borderWidthProp[1] + 'Style'];
+
+			if (borderStyleProp === 'none') {
+				return 0;
+			} else {
+				return borderWidths[value] || 0;
+			}
+		}
+
+		return value;
+	}
+
+	var size = match[1];
+	var unit = match[2];
+
+	return unit === 'px'  ? size * 1 :
+	unit === 'cm'  ? size * 0.3937 * 96 :
+	unit === 'in'  ? size * 96 :
+	unit === 'mm'  ? size * 0.3937 * 96 / 10 :
+	unit === 'pc'  ? size * 12 * 96 / 72 :
+	unit === 'pt'  ? size * 96 / 72 :
+	unit === 'rem' ? size * 16 :
+	getComputedValue(value, element);
+}
+
+function getComputedValue(value, element) {
+	testElement.style.cssText = 'border:none!important;clip:rect(0 0 0 0)!important;display:block!important;font-size:1em!important;height:0!important;margin:0!important;padding:0!important;position:relative!important;width:' + value + '!important';
+
+	element.parentNode.insertBefore(testElement, element.nextSibling);
+
+	var fontSize = testElement.offsetWidth;
+
+	element.parentNode.removeChild(testElement);
+
+	return fontSize;
+}
+
+},{}],15:[function(require,module,exports){
+module.exports = read;
+
+var declMatch         = /([^\s:;]+)\s*:\s*([^;]+?)\s*(;|$)/g;
+var ignoredPropsMatch = /^(alignSelf|height|width)$/;
+var pxValueMatch      = /^(0|\d*\.?\d+px)$/;
+
+var getComputedLength = require('./getComputedLength');
+
+// Return flexbox related details of an element
+function read(element) {
+	// normalized style
+	var style = {
+		alignContent: 'stretch',
+		alignItems: 'stretch',
+		alignSelf: 'auto',
+		borderBottomStyle: 'none',
+		borderBottomWidth: 0,
+		borderLeftStyle: 'none',
+		borderLeftWidth: 0,
+		borderRightStyle: 'none',
+		borderRightWidth: 0,
+		borderTopStyle: 'none',
+		borderTopWidth: 0,
+		boxSizing: 'content-box',
+		display: 'inline',
+		flexBasis: 'auto',
+		flexDirection: 'row',
+		flexGrow: 0,
+		flexShrink: 1,
+		flexWrap: 'nowrap',
+		justifyContent: 'flex-start',
+		height: 'auto',
+		marginTop: 0,
+		marginRight: 0,
+		marginLeft: 0,
+		marginBottom: 0,
+		paddingTop: 0,
+		paddingRight: 0,
+		paddingLeft: 0,
+		paddingBottom: 0,
+		maxHeight: 'none',
+		maxWidth: 'none',
+		minHeight: 0,
+		minWidth: 0,
+		order: 0,
+		position: 'static',
+		width: 'auto'
+	};
+
+	// whether element is an element
+	var isElement = element instanceof Element;
+
+	if (isElement) {
+		// whether element has data-style attribute
+		var hasDataStyleAttr = element.hasAttribute('data-style');
+
+		// inline style from data-style or style
+		var inlineStyle = hasDataStyleAttr ? element.getAttribute('data-style') : element.getAttribute('style') || '';
+
+		if (!hasDataStyleAttr) {
+			// copy style to data-style
+			element.setAttribute('data-style', inlineStyle);
+		}
+
+		// append computed style to style
+		var computedStyle = window.getComputedStyle && getComputedStyle(element) || {};
+
+		appendComputedStyle(style, computedStyle);
+
+		// append current style to style
+		var currentStyle = element.currentStyle || {};
+
+		appendCurrentStyle(style, currentStyle);
+
+		// append inline style to style
+		appendInlineStyle(style, inlineStyle);
+
+		// for each camel-case property
+		for (var prop in style) {
+			style[prop] = getComputedLength(style, prop, element);
+		}
+
+		// offset measurements
+		var boundingClientRect = element.getBoundingClientRect();
+
+		style.offsetHeight = boundingClientRect.height || element.offsetHeight;
+		style.offsetWidth  = boundingClientRect.width  || element.offsetWidth;
+	}
+
+	var details = {
+		element: element,
+		style: style
+	};
+
+	return details;
+}
+
+function appendCurrentStyle(style, currentStyle) {
+	// for each camel-case property
+	for (var prop in style) {
+		// whether property is in current style
+		var hasProp = prop in currentStyle;
+
+		if (hasProp) {
+			style[prop] = currentStyle[prop];
+		} else {
+			// kebab property
+			var kebabName = prop.replace(/[A-Z]/g, '-$&').toLowerCase();
+
+			// whether kebab property is in current style
+			var hasKebabName = kebabName in currentStyle;
+
+			if (hasKebabName) {
+				style[prop] = currentStyle[kebabName];
+			}
+		}
+	}
+
+	// whether -js-display property exists
+	var hasJsDisplay = '-js-display' in currentStyle;
+
+	if (hasJsDisplay) {
+		style.display = currentStyle['-js-display'];
+	}
+}
+
+function appendInlineStyle(style, inlineStyle) {
+	var decl;
+
+	// for each declaration
+	while (decl = declMatch.exec(inlineStyle)) {
+		// camel-case property
+		var prop = decl[1].toLowerCase().replace(/-[a-z]/g, function (match) {
+			return match.slice(1).toUpperCase();
+		});
+
+		style[prop] = decl[2];
+	}
+}
+
+function appendComputedStyle(style, computedStyle) {
+	// for each camel-case property
+	for (var prop in style) {
+		// whether kebab property is in current style
+		var hasProp = prop in computedStyle;
+
+		if (hasProp && !ignoredPropsMatch.test(prop)) {
+			style[prop] = computedStyle[prop];
+		}
+	}
+}
+
+},{"./getComputedLength":14}],16:[function(require,module,exports){
+module.exports = readAll;
+
+var read = require('../read');
+var displayFlexMatch = /(^|;)\s*display\s*:\s*(inline-)?flex\s*(;|$)/i;
+var flexMatch = /^(inline-)?flex$/i;
+
+// Return a list of flexbox details from a matching element or its descendants
+function readAll(element) {
+	// create details list
+	var detailsList = [];
+
+	// process display flex details
+	readElementAndTree(element, detailsList);
+
+	return detailsList;
+}
+
+function readElementAndTree(element, detailsList) {
+	// whether the element has a display flex style
+	var isDisplayFlex = isElementDisplayFlexCheck(element);
+
+	// children of the element
+	var children = [];
+
+	var index = -1;
+	var childNode;
+
+	// for each child node of the element
+	while (childNode = element.childNodes[++index]) {
+		// whether the child is non-empty text
+		var isNonEmptyText = childNode.nodeType === 3 && !/^\s*$/.test(childNode.nodeValue);
+
+		if (isDisplayFlex && isNonEmptyText) {
+			// replace the text with an element containing the text
+			var oldNode = childNode;
+
+			childNode = element.insertBefore(document.createElement('flex-item'), oldNode);
+
+			childNode.appendChild(oldNode);
+		}
+
+		// whether the child is an element
+		var isElement = childNode instanceof Element;
+
+		if (isElement) {
+			// get the flex details of the child
+			var childDetails = readElementAndTree(childNode, detailsList);
+
+			if (isDisplayFlex) {
+				var runtimeStyle = childNode.style;
+
+				// remove from layout
+				runtimeStyle.display = 'inline-block';
+				runtimeStyle.position = 'absolute';
+
+				// get the current flex related styles
+				childDetails.style = read(childNode).style;
+
+				// push the child details to children
+				children.push(childDetails);
+			}
+		}
+	}
+
+	// combined flex details of the element
+	var details = {
+		element: element,
+		children: children
+	};
+
+	if (isDisplayFlex) {
+		// get the current flex related styles
+		details.style = read(element).style;
+
+		// push the flex details of the element to detailsList
+		detailsList.push(details);
+	}
+
+	return details;
+}
+
+function isElementDisplayFlexCheck(element) {
+	// whether the element is an element
+	var isElement = element instanceof Element;
+
+	// whether the element has a data flex attribute
+	var dataFlexStyle = isElement && element.getAttribute('data-style');
+
+	// whether the element has a current style and -js-display declaration
+	var currentStyleJsDisplay = isElement && element.currentStyle && element.currentStyle['-js-display'];
+
+	// whether flex is detected by the data flex attribute or the current style
+	var isElementDisplayFlex = displayFlexMatch.test(dataFlexStyle) || flexMatch.test(currentStyleJsDisplay);
+
+	return isElementDisplayFlex;
+}
+
+},{"../read":15}],17:[function(require,module,exports){
+module.exports = write;
+
+var translate = require('../flexbox');
+
+// write( details ): Writes flexbox details back to their respective elements.
+function write(details) {
+	translate(details);
+
+	var runtimeStyle = details.element.style;
+
+	var angle = details.mainAxis === 'inline' ? ['main', 'cross'] : ['cross', 'main'];
+
+	runtimeStyle.boxSizing = 'content-box';
+	runtimeStyle.display   = 'block';
+	runtimeStyle.position  = 'relative';
+
+	runtimeStyle.width  = normalize(details.flexStyle[angle[0]] - details.flexStyle[angle[0] + 'InnerBefore'] - details.flexStyle[angle[0] + 'InnerAfter'] - details.flexStyle[angle[0] + 'BorderBefore'] - details.flexStyle[angle[0] + 'BorderAfter']);
+	runtimeStyle.height = normalize(details.flexStyle[angle[1]] - details.flexStyle[angle[1] + 'InnerBefore'] - details.flexStyle[angle[1] + 'InnerAfter'] - details.flexStyle[angle[1] + 'BorderBefore'] - details.flexStyle[angle[1] + 'BorderAfter']);
+
+	var index = -1;
+	var child;
+
+	while (child = details.children[++index]) {
+		var childRuntimeStyle = child.element.style;
+
+		var childAngle = child.mainAxis === 'inline' ? ['main', 'cross'] : ['cross', 'main'];
+
+		childRuntimeStyle.boxSizing = 'content-box';
+		childRuntimeStyle.display   = 'block';
+		childRuntimeStyle.position  = 'absolute';
+
+		if (child.flexStyle[childAngle[0]] !== 'auto') {
+			childRuntimeStyle.width  = normalize(child.flexStyle[childAngle[0]] - child.flexStyle[childAngle[0] + 'InnerBefore'] - child.flexStyle[childAngle[0] + 'InnerAfter'] - child.flexStyle[childAngle[0] + 'BorderBefore'] - child.flexStyle[childAngle[0] + 'BorderAfter']);
+		}
+
+		if (child.flexStyle[childAngle[1]] !== 'auto') {
+			childRuntimeStyle.height = normalize(child.flexStyle[childAngle[1]] - child.flexStyle[childAngle[1] + 'InnerBefore'] - child.flexStyle[childAngle[1] + 'InnerAfter'] - child.flexStyle[childAngle[1] + 'BorderBefore'] - child.flexStyle[childAngle[1] + 'BorderAfter']);
+		}
+
+		childRuntimeStyle.top  = normalize(child.flexStyle[childAngle[1] + 'Start']);
+		childRuntimeStyle.left = normalize(child.flexStyle[childAngle[0] + 'Start']);
+
+		childRuntimeStyle.marginTop    = normalize(child.flexStyle[childAngle[1] + 'Before']);
+		childRuntimeStyle.marginRight  = normalize(child.flexStyle[childAngle[0] + 'After']);
+		childRuntimeStyle.marginBottom = normalize(child.flexStyle[childAngle[1] + 'After']);
+		childRuntimeStyle.marginLeft   = normalize(child.flexStyle[childAngle[0] + 'Before']);
+	}
+}
+
+function normalize(value) {
+	if (isNaN(value) || !parseInt(value)) {
+		return '0px';
+	}
+	return typeof value === 'string' ? value : Math.max(value, 0) + 'px';
+}
+
+},{"../flexbox":7}],18:[function(require,module,exports){
+module.exports = writeAll;
+
+var write = require('../write');
+
+// writeAll( detailsList ): Writes a list of flexbox details back to their respective elements.
+function writeAll(detailsList) {
+	var index = -1;
+	var details;
+
+	while (details = detailsList[++index]) {
+		write(details);
+	}
+}
+
+},{"../write":17}]},{},[13])(13)
+});
