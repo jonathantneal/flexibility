@@ -50,7 +50,7 @@
         "test"
       ],
       "extensions": "js",
-      "quiet": "true"
+      "quiet": true
     }
   },
   "scripts": {
