@@ -4,7 +4,7 @@
 
 > A JavaScript polyfill for Flexbox
 
-[![npm][npm-image]][npm-url] [![bower][bower-image]][bower-url]
+[![npm][npm-image]][npm-url] [![bower][bower-image]][bower-url] [![jsDelivr Hits][jsdelivr-image]][jsdelivr-url]
 [![ci][ci-image]][ci-url] [![gitter][gitter-image]][gitter-url]
 
 [Flexibility] is a polyfill for the [Flexible Box Layout], commonly known as
@@ -88,6 +88,8 @@ issue.
 [ci-url]:       https://travis-ci.org/jonathantneal/flexibility
 [gitter-image]: https://img.shields.io/gitter/room/jonathantneal/flexibility.svg?style=flat-square
 [gitter-url]:   https://gitter.im/jonathantneal/flexibility
+[jsdelivr-image]: https://data.jsdelivr.com/v1/package/npm/flexibility/badge
+[jsdelivr-url]: https://www.jsdelivr.com/package/npm/flexibility
 [npm-image]:    https://img.shields.io/npm/v/flexibility.svg?style=flat-square
 [npm-url]:      https://www.npmjs.com/package/flexibility
 
