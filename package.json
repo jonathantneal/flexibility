@@ -2,7 +2,7 @@
   "name": "flexibility",
   "version": "2.0.1",
   "description": "A JavaScript polyfill for Flexbox",
-  "main": "flexibility.js",
+  "main": "lib/index.js",
   "repository": "jonathantneal/flexibility",
   "keywords": [
     "flex",
@@ -37,7 +37,8 @@
   ],
   "files": [
     "LICENSE.md",
-    "flexibility.js"
+    "flexibility.js",
+    "lib"
   ],
   "author": "Jonathan Neal <jonathantneal@hotmail.com> (http://jonathantneal.com)",
   "license": "MIT",
