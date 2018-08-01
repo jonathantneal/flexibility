@@ -61,29 +61,23 @@
     "compress-w-map": "uglifyjs flexibility.js --compress --mangle --source-map flexibility.js.map --output flexibility.js",
     "build": "npm run compile && npm run compress",
     "eslint": "eslint ./lib/",
-    "jscs": "jscs ./lib/",
     "prepublish": "npm run build",
-    "test": "npm run jscs",
+    "test": "npm run eslint",
     "watch": "npm-watch"
   },
   "dependencies": {},
   "devDependencies": {
-    "ava": "^0.15.2",
-    "browserify": "^13.0.1",
-    "eslint": "^2.13.1",
-    "eslint-config-10up": "github:jonathantneal/eslint-config-10up",
-    "jscs": "^3.0.5",
-    "jscs-config-10up": "github:jonathantneal/jscs-config-10up",
-    "npm-watch": "^0.1.4",
-    "uglify-js": "^2.6.4"
+    "ava": "^0.25.0",
+    "browserify": "^16.2.2",
+    "eslint": "^5.2.0",
+    "eslint-config-dev": "^2.0.0",
+    "npm-watch": "^0.3.0",
+    "uglify-js": "^3.4.6"
   },
   "engines": {
     "node": ">=0.12.0"
   },
-  "jscsConfig": {
-    "preset": "10up"
-  },
   "eslintConfig": {
-    "extends": "10up"
+    "extends": "dev"
   }
 }
