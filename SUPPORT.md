@@ -31,7 +31,7 @@ Name | Value
   `flex-direction: column` on the fly will sometimes fail to stretch the newly
   columned items.
 - IE8 believes everything is `margin: auto` unless you first set `* { margin: 0; }`. Afterward, `margin: auto` will work as expected.
-- In IE8, flex items whose widths are determined by inline text don’t alway
+- In IE8, flex items whose widths are determined by inline text don’t always
   resize on resize.
 
 ### How Flexibility Works
