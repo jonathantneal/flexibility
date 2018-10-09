@@ -12,7 +12,7 @@ Name | Value
 `display` | flex \| inline-flex
 `flex-direction` | column \| row
 `justify-content` | flex-start \| center \| flex-end \| space-between \| space-around
-`align-items`, align-self | flex-start \| center \| flex-end \| stretch
+`align-items`, `align-self` | flex-start \| center \| flex-end \| stretch
 `flex` | [flex-grow]
 `flex-flow` | `flex-direction` + `flex-wrap`
 `flex-grow` | [CSS Number]
