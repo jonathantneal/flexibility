@@ -5,7 +5,7 @@
 > A JavaScript polyfill for Flexbox
 
 [![npm][npm-image]][npm-url] [![bower][bower-image]][bower-url]
-[![ci][ci-image]][ci-url] [![gitter][gitter-image]][gitter-url]
+[![ci][ci-image]][ci-url] [![gitter][gitter-image]][gitter-url] [![kandi X-Ray](https://kandi.openweaver.com/badges/xray.svg)](https://kandi.openweaver.com/javascript/jonathantneal/flexibility)
 
 [Flexibility] is a polyfill for the [Flexible Box Layout], commonly known as
 Flexbox. With Flexibility, you get to design beautiful, flexible layouts on the
